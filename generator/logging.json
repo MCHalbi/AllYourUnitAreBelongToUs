@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "colored": {
+            "class": "coloredlogs.ColoredFormatter",
+            "datefmt": "%Y-%m-%d %H:%M:%S,%f",
+            "field_styles": {
+                "funcName": {"color": "blue"},
+                "asctime": {"color": "green"},
+                "hostname": {"color": "magenta"},
+                "levelname": {"bold": true, "color": "black"},
+                "name": {"color": "blue"},
+                "programname": {"color": "cyan"},
+                "username": {"color": "yellow"}
+            },
+            "format": "[%(levelname)-7s] %(asctime)s - %(name)s: %(message)s"
+        },
+        "standard": {
+            "format": "[%(levelname)-7s] %(asctime)s - %(name)s: %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "colored"
+        }
+    },
+    "root": {
+        "level": "NOTSET",
+        "handlers": [
+            "console"
+        ]
+    }
+}
