@@ -65,9 +65,9 @@ class Length:
             return self._value
 
     def to_unit(self, unit: LengthUnit) -> 'Length':
-        base_unit_value = self._get_value_in_base_unit()
+        converted_value = self._get_value_as(unit)
 
-        return Length(base_unit_value, unit)
+        return Length(converted_value, unit)
 
     def _to_base_unit(self) -> 'Length':
         return self.to_unit(self.base_unit)
@@ -78,3 +78,12 @@ class Length:
         except KeyError:
             raise NotImplementedError(
                 'Can not convert {0} to base units.'.format(self._unit.name))
+
+    def _get_value_as(self, unit: LengthUnit) -> float:
+        base_unit_value = self._get_value_in_base_unit()
+
+        try:
+            return base_unit_value / Length.factors[unit]
+        except KeyError:
+            raise NotImplementedError(
+                'Can not convert {0} to {1}.'.format(self._unit.name, unit))
