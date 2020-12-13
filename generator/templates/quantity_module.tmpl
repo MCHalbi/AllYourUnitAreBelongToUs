@@ -1,0 +1,54 @@
+from ..units import {quantity}Unit
+
+
+class {quantity}:
+    base_unit = {quantity}Unit.{base_unit_upper}
+    factors = {{
+{factors}
+    }}
+    abbreviations = {{
+{abbreviations}
+    }}
+
+    def __init__(self, value: float, unit: '{quantity}Unit') -> None:
+        self._value = value
+        self._unit = unit
+
+    def __str__(self):
+        return "{{value}} {{unit}}".format(
+            value=str(self._value),
+            unit={quantity}.abbreviations[self._unit])
+
+    def __repr__(self):
+        return str(self)
+
+    @staticmethod
+    def zero() -> '{quantity}':
+        return {quantity}(0, {quantity}.base_unit)
+
+    @property
+    def unit(self) -> {quantity}Unit:
+        return self._unit
+
+    @property
+    def value(self) -> float:
+        return self._value
+
+    def as_unit(self, unit: {quantity}Unit) -> float:
+        if unit == self._unit:
+            return self._value
+
+    def to_unit(self, unit: {quantity}Unit) -> '{quantity}':
+        base_unit_value = self._get_value_in_base_unit()
+
+        return {quantity}(base_unit_value, unit)
+
+    def _to_base_unit(self) -> '{quantity}':
+        return self.to_unit(self.base_unit)
+
+    def _get_value_in_base_unit(self) -> float:
+        try:
+            return self._value * {quantity}.factors[self._unit]
+        except KeyError:
+            raise NotImplementedError(
+                'Can not convert {{0}} to base units.'.format(self._unit.name))
