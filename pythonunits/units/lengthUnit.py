@@ -4,7 +4,6 @@ from enum import Enum
 
 
 class LengthUnit(Enum):
-    # SI
     KILOMETER = 0
     HECTOMETER = 1
     DECAMETER = 2
@@ -14,8 +13,6 @@ class LengthUnit(Enum):
     MILLIMETER = 6
     MICROMETER = 7
     NANOMETER = 8
-
-    # Imperial
     INCH = 9
     FOOT = 10
     YARD = 11
