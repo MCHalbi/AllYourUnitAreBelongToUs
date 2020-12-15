@@ -1,0 +1,10 @@
+{% extends "module_base.py.tmpl" %}
+{% block content %}
+from enum import Enum
+
+
+class {{ quantity['name'] }}Unit(Enum):
+{% for unit in quantity['units'] %}
+    {{ unit['name'].upper() }} = {{ loop.index }}
+{% endfor %}
+{% endblock %}

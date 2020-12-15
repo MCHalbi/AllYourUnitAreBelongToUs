@@ -1,0 +1,120 @@
+{% extends './module_base.py.tmpl' %}
+{% block content %}
+from ..units import {{ quantity['name'] }}Unit
+
+
+class {{ quantity['name'] }}:
+    base_unit = {{ quantity['name'] }}Unit.{{ quantity['baseunit'].upper() }}
+    factors = {
+    {% for unit in quantity['units'] %}
+        {{ quantity['name'] }}Unit.{{ unit['name'].upper() }}: {{ unit['factor'] }},
+    {% endfor %}
+    }
+    abbreviations = {
+    {% for unit in quantity['units'] %}
+        {{ quantity['name'] }}Unit.{{ unit['name'].upper() }}: '{{ unit['abbreviation'] }}',
+    {% endfor %}
+    }
+
+    def __init__(self, value: float, unit: '{{ quantity['name'] }}Unit') -> None:
+        self._value = value
+        self._unit = unit
+
+    def __str__(self):
+        return "{value} {unit}".format(
+            value=str(self._value),
+            unit={{ quantity['name'] }}.abbreviations[self._unit])
+
+    def __repr__(self):
+        return str(self)
+
+    # Comparison operators
+    def __eq__(self, other):
+        return self._value == other.as_unit(self._unit)
+
+    # Unary operators
+    def __neg__(self):
+        return {{ quantity['name'] }}(-self._value, self._unit)
+
+    # Arithmetic operators
+    def __add__(self, other):
+        if type(other) is {{ quantity['name'] }}:
+            return {{ quantity['name'] }}(self._value + other.as_unit(self._unit), self._unit)
+
+        self._raise_type_error_for_undefined_operator(other, '+')
+
+    def __sub__(self, other):
+        if type(other) is {{ quantity['name'] }}:
+            return {{ quantity['name'] }}(self._value - other.as_unit(self._unit), self._unit)
+
+        self._raise_type_error_for_undefined_operator(other, '-')
+
+    def __mul__(self, other):
+        if type(other) in (float, int):
+            return {{ quantity['name'] }}(self._value * other, self._unit)
+
+        self._raise_type_error_for_undefined_operator(other, '*')
+
+    def __rmul__(self, other):
+        if type(other) in (float, int):
+            return self * other
+
+        self._raise_type_error_for_undefined_operator(other, '*')
+
+    def __truediv__(self, other):
+        if type(other) is {{ quantity['name'] }}:
+            return (self._get_value_in_base_unit()
+                    / other.as_unit(other.base_unit))
+        if type(other) in (float, int):
+            return {{ quantity['name'] }}(self._value / other, self._unit)
+
+        self._raise_type_error_for_undefined_operator(other, '/')
+
+    def _raise_type_error_for_undefined_operator(
+            self, other, operator: str) -> None:
+        raise TypeError(
+            'unsupported operand type(s) for {0}: \'{1}\' and \'{2}\''
+            .format(operator, type(self).__name__, type(other).__name__))
+
+    @staticmethod
+    def zero() -> '{{ quantity['name'] }}':
+        return {{ quantity['name'] }}(0, {{ quantity['name'] }}.base_unit)
+
+    @property
+    def unit(self) -> {{ quantity['name'] }}Unit:
+        return self._unit
+
+    @property
+    def value(self) -> float:
+        return self._value
+
+    def as_unit(self, unit: {{ quantity['name'] }}Unit) -> float:
+        if unit == self._unit:
+            return self._value
+
+        return self._get_value_as(unit)
+
+    def to_unit(self, unit: {{ quantity['name'] }}Unit) -> '{{ quantity['name'] }}':
+        converted_value = self._get_value_as(unit)
+
+        return {{ quantity['name'] }}(converted_value, unit)
+
+    def _to_base_unit(self) -> '{{ quantity['name'] }}':
+        return self.to_unit(self.base_unit)
+
+    def _get_value_in_base_unit(self) -> float:
+        try:
+            return self._value * {{ quantity['name'] }}.factors[self._unit]
+        except KeyError:
+            raise NotImplementedError(
+                'Can not convert {0} to base units.'.format(self._unit.name))
+
+    def _get_value_as(self, unit: {{ quantity['name'] }}Unit) -> float:
+        base_unit_value = self._get_value_in_base_unit()
+
+        try:
+            return base_unit_value / {{ quantity['name'] }}.factors[unit]
+        except KeyError:
+            raise NotImplementedError(
+                'Can not convert {0} to {1}.'.format(self._unit.name, unit))
+{% endblock %}
