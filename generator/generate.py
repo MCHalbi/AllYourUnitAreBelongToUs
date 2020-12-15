@@ -13,7 +13,7 @@ logging.config.dictConfig(logging_configuration)
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        description='Generates the pythonunit package from a json file.')
+        description='Generates the ayuabtu package from a json file.')
 
     parser.add_argument(
         '-s', '--source',
@@ -31,7 +31,7 @@ def parse_arguments():
 
     parser.add_argument(
         '-t', '--target',
-        default='../pythonunits/',
+        default='../ayuabtu/',
         type=str,
         help='The path to the directory in which the package should be '
              'generated. If the directory does not exist, it is created.')
