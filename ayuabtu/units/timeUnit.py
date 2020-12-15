@@ -4,11 +4,11 @@ from enum import Enum
 
 
 class TimeUnit(Enum):
-    WEEK = 0
-    DAY = 1
-    HOUR = 2
-    MINUTE = 3
-    SECOND = 4
-    MILLISECOND = 5
-    MICROSECOND = 6
-    NANOSECOND = 7
+    WEEK = 1
+    DAY = 2
+    HOUR = 3
+    MINUTE = 4
+    SECOND = 5
+    MILLISECOND = 6
+    MICROSECOND = 7
+    NANOSECOND = 8
