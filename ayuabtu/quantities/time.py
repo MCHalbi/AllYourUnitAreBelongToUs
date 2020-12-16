@@ -109,6 +109,64 @@ class Time:
 
         return Time(converted_value, unit)
 
+    # Generation shorthands
+    @staticmethod
+    def from_weeks(value: float) -> 'Time':
+        return Time(value, TimeUnit.WEEK)
+
+    @staticmethod
+    def from_days(value: float) -> 'Time':
+        return Time(value, TimeUnit.DAY)
+
+    @staticmethod
+    def from_hours(value: float) -> 'Time':
+        return Time(value, TimeUnit.HOUR)
+
+    @staticmethod
+    def from_minutes(value: float) -> 'Time':
+        return Time(value, TimeUnit.MINUTE)
+
+    @staticmethod
+    def from_seconds(value: float) -> 'Time':
+        return Time(value, TimeUnit.SECOND)
+
+    @staticmethod
+    def from_milliseconds(value: float) -> 'Time':
+        return Time(value, TimeUnit.MILLISECOND)
+
+    @staticmethod
+    def from_microseconds(value: float) -> 'Time':
+        return Time(value, TimeUnit.MICROSECOND)
+
+    @staticmethod
+    def from_nanoseconds(value: float) -> 'Time':
+        return Time(value, TimeUnit.NANOSECOND)
+
+    # Conversion shorthands
+    def weeks(self) -> float:
+        return self.as_unit(TimeUnit.WEEK)
+
+    def days(self) -> float:
+        return self.as_unit(TimeUnit.DAY)
+
+    def hours(self) -> float:
+        return self.as_unit(TimeUnit.HOUR)
+
+    def minutes(self) -> float:
+        return self.as_unit(TimeUnit.MINUTE)
+
+    def seconds(self) -> float:
+        return self.as_unit(TimeUnit.SECOND)
+
+    def milliseconds(self) -> float:
+        return self.as_unit(TimeUnit.MILLISECOND)
+
+    def microseconds(self) -> float:
+        return self.as_unit(TimeUnit.MICROSECOND)
+
+    def nanoseconds(self) -> float:
+        return self.as_unit(TimeUnit.NANOSECOND)
+
     def _to_base_unit(self) -> 'Time':
         return self.to_unit(self.base_unit)
 
