@@ -51,12 +51,14 @@
       {
         "name": "Inch",
         "factor": "0.0254",
-        "abbreviation": "in"
+        "abbreviation": "in",
+        "plural": "Inches"
       },
       {
         "name": "Foot",
         "factor": "0.3048",
-        "abbreviation": "ft"
+        "abbreviation": "ft",
+        "plural": "Feet"
       },
       {
         "name": "Yard",
@@ -284,12 +286,14 @@
       {
         "name": "EarthMass",
         "factor": "5.9723e24",
-        "abbreviation": "M⊕"
+        "abbreviation": "M⊕",
+        "plural": "EarthMasses"
       },
       {
         "name": "SolarMass",
         "factor": "1.98892e30",
-        "abbreviation": "M☉"
+        "abbreviation": "M☉",
+        "plural": "SolarMasses"
       }
     ]
   }
