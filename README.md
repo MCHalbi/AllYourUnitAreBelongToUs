@@ -1,4 +1,5 @@
 # AllYourUnitAreBelongToUs
+![version](https://img.shields.io/pypi/v/ayuabtu)
 
 ## Installation
 
