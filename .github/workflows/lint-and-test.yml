@@ -6,6 +6,7 @@ name: Codestyle and unittests
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
