@@ -2,8 +2,8 @@
 # Copyright 2020
 # pylint: disable=missing-docstring
 import unittest
-from pythonunits.quantities import Length
-from pythonunits.units import LengthUnit
+from ayuabtu.quantities import Length
+from ayuabtu.units import LengthUnit
 
 
 class LengthTests(unittest.TestCase):
