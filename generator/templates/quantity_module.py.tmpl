@@ -99,6 +99,29 @@ class {{ quantity['name'] }}:
 
         return {{ quantity['name'] }}(converted_value, unit)
 
+    # Generation shorthands
+    {% for unit in quantity['units'] %}
+      {% if 'plural' in unit %}
+        {% set unit_plural = unit['plural'][0].lower() + unit['plural'][1:] %}
+      {% else %}
+        {% set unit_plural = unit['name'][0].lower() + unit['name'][1:] + 's' %}
+      {% endif %}
+    @staticmethod
+    def from_{{ unit_plural }}(value: float) -> '{{ quantity['name'] }}':
+        return {{ quantity['name'] }}(value, {{ quantity['name'] }}Unit.{{ unit['name'].upper() }})
+
+    {% endfor %}
+    # Conversion shorthands
+    {% for unit in quantity['units'] %}
+      {% if 'plural' in unit %}
+        {% set unit_plural = unit['plural'][0].lower() + unit['plural'][1:] %}
+      {% else %}
+        {% set unit_plural = unit['name'][0].lower() + unit['name'][1:] + 's' %}
+      {% endif %}
+    def {{ unit_plural }}(self) -> float:
+        return self.as_unit({{ quantity['name'] }}Unit.{{ unit['name'].upper() }})
+
+    {% endfor %}
     def _to_base_unit(self) -> '{{ quantity['name'] }}':
         return self.to_unit(self.base_unit)
 
