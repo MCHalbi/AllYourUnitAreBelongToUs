@@ -119,6 +119,99 @@ class Length:
 
         return Length(converted_value, unit)
 
+    # Generation shorthands
+    @staticmethod
+    def from_kilometers(value: float) -> 'Length':
+        return Length(value, LengthUnit.KILOMETER)
+
+    @staticmethod
+    def from_hectometers(value: float) -> 'Length':
+        return Length(value, LengthUnit.HECTOMETER)
+
+    @staticmethod
+    def from_decameters(value: float) -> 'Length':
+        return Length(value, LengthUnit.DECAMETER)
+
+    @staticmethod
+    def from_meters(value: float) -> 'Length':
+        return Length(value, LengthUnit.METER)
+
+    @staticmethod
+    def from_decimeters(value: float) -> 'Length':
+        return Length(value, LengthUnit.DECIMETER)
+
+    @staticmethod
+    def from_centimeters(value: float) -> 'Length':
+        return Length(value, LengthUnit.CENTIMETER)
+
+    @staticmethod
+    def from_millimeters(value: float) -> 'Length':
+        return Length(value, LengthUnit.MILLIMETER)
+
+    @staticmethod
+    def from_micrometers(value: float) -> 'Length':
+        return Length(value, LengthUnit.MICROMETER)
+
+    @staticmethod
+    def from_nanometers(value: float) -> 'Length':
+        return Length(value, LengthUnit.NANOMETER)
+
+    @staticmethod
+    def from_inches(value: float) -> 'Length':
+        return Length(value, LengthUnit.INCH)
+
+    @staticmethod
+    def from_feet(value: float) -> 'Length':
+        return Length(value, LengthUnit.FOOT)
+
+    @staticmethod
+    def from_yards(value: float) -> 'Length':
+        return Length(value, LengthUnit.YARD)
+
+    @staticmethod
+    def from_miles(value: float) -> 'Length':
+        return Length(value, LengthUnit.MILE)
+
+    # Conversion shorthands
+    def kilometers(self) -> float:
+        return self.as_unit(LengthUnit.KILOMETER)
+
+    def hectometers(self) -> float:
+        return self.as_unit(LengthUnit.HECTOMETER)
+
+    def decameters(self) -> float:
+        return self.as_unit(LengthUnit.DECAMETER)
+
+    def meters(self) -> float:
+        return self.as_unit(LengthUnit.METER)
+
+    def decimeters(self) -> float:
+        return self.as_unit(LengthUnit.DECIMETER)
+
+    def centimeters(self) -> float:
+        return self.as_unit(LengthUnit.CENTIMETER)
+
+    def millimeters(self) -> float:
+        return self.as_unit(LengthUnit.MILLIMETER)
+
+    def micrometers(self) -> float:
+        return self.as_unit(LengthUnit.MICROMETER)
+
+    def nanometers(self) -> float:
+        return self.as_unit(LengthUnit.NANOMETER)
+
+    def inches(self) -> float:
+        return self.as_unit(LengthUnit.INCH)
+
+    def feet(self) -> float:
+        return self.as_unit(LengthUnit.FOOT)
+
+    def yards(self) -> float:
+        return self.as_unit(LengthUnit.YARD)
+
+    def miles(self) -> float:
+        return self.as_unit(LengthUnit.MILE)
+
     def _to_base_unit(self) -> 'Length':
         return self.to_unit(self.base_unit)
 

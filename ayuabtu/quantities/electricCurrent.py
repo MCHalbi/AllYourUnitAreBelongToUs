@@ -109,6 +109,64 @@ class ElectricCurrent:
 
         return ElectricCurrent(converted_value, unit)
 
+    # Generation shorthands
+    @staticmethod
+    def from_megaamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.MEGAAMPERE)
+
+    @staticmethod
+    def from_kiloamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.KILOAMPERE)
+
+    @staticmethod
+    def from_amperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.AMPERE)
+
+    @staticmethod
+    def from_centiamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.CENTIAMPERE)
+
+    @staticmethod
+    def from_milliamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.MILLIAMPERE)
+
+    @staticmethod
+    def from_microamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.MICROAMPERE)
+
+    @staticmethod
+    def from_nanoamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.NANOAMPERE)
+
+    @staticmethod
+    def from_picoamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.PICOAMPERE)
+
+    # Conversion shorthands
+    def megaamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.MEGAAMPERE)
+
+    def kiloamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.KILOAMPERE)
+
+    def amperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.AMPERE)
+
+    def centiamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.CENTIAMPERE)
+
+    def milliamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.MILLIAMPERE)
+
+    def microamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.MICROAMPERE)
+
+    def nanoamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.NANOAMPERE)
+
+    def picoamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.PICOAMPERE)
+
     def _to_base_unit(self) -> 'ElectricCurrent':
         return self.to_unit(self.base_unit)
 

@@ -143,6 +143,183 @@ class Mass:
 
         return Mass(converted_value, unit)
 
+    # Generation shorthands
+    @staticmethod
+    def from_gigatonnes(value: float) -> 'Mass':
+        return Mass(value, MassUnit.GIGATONNE)
+
+    @staticmethod
+    def from_megatonnes(value: float) -> 'Mass':
+        return Mass(value, MassUnit.MEGATONNE)
+
+    @staticmethod
+    def from_kilotonnes(value: float) -> 'Mass':
+        return Mass(value, MassUnit.KILOTONNE)
+
+    @staticmethod
+    def from_tonnes(value: float) -> 'Mass':
+        return Mass(value, MassUnit.TONNE)
+
+    @staticmethod
+    def from_kilograms(value: float) -> 'Mass':
+        return Mass(value, MassUnit.KILOGRAM)
+
+    @staticmethod
+    def from_hectograms(value: float) -> 'Mass':
+        return Mass(value, MassUnit.HECTOGRAM)
+
+    @staticmethod
+    def from_decagrams(value: float) -> 'Mass':
+        return Mass(value, MassUnit.DECAGRAM)
+
+    @staticmethod
+    def from_grams(value: float) -> 'Mass':
+        return Mass(value, MassUnit.GRAM)
+
+    @staticmethod
+    def from_decigrams(value: float) -> 'Mass':
+        return Mass(value, MassUnit.DECIGRAM)
+
+    @staticmethod
+    def from_centigrams(value: float) -> 'Mass':
+        return Mass(value, MassUnit.CENTIGRAM)
+
+    @staticmethod
+    def from_milligrams(value: float) -> 'Mass':
+        return Mass(value, MassUnit.MILLIGRAM)
+
+    @staticmethod
+    def from_micrograms(value: float) -> 'Mass':
+        return Mass(value, MassUnit.MICROGRAM)
+
+    @staticmethod
+    def from_nanograms(value: float) -> 'Mass':
+        return Mass(value, MassUnit.NANOGRAM)
+
+    @staticmethod
+    def from_megapounds(value: float) -> 'Mass':
+        return Mass(value, MassUnit.MEGAPOUND)
+
+    @staticmethod
+    def from_kilopounds(value: float) -> 'Mass':
+        return Mass(value, MassUnit.KILOPOUND)
+
+    @staticmethod
+    def from_pounds(value: float) -> 'Mass':
+        return Mass(value, MassUnit.POUND)
+
+    @staticmethod
+    def from_ounces(value: float) -> 'Mass':
+        return Mass(value, MassUnit.OUNCE)
+
+    @staticmethod
+    def from_grains(value: float) -> 'Mass':
+        return Mass(value, MassUnit.GRAIN)
+
+    @staticmethod
+    def from_shortHundredweights(value: float) -> 'Mass':
+        return Mass(value, MassUnit.SHORTHUNDREDWEIGHT)
+
+    @staticmethod
+    def from_shortTons(value: float) -> 'Mass':
+        return Mass(value, MassUnit.SHORTTON)
+
+    @staticmethod
+    def from_stones(value: float) -> 'Mass':
+        return Mass(value, MassUnit.STONE)
+
+    @staticmethod
+    def from_longHundredweights(value: float) -> 'Mass':
+        return Mass(value, MassUnit.LONGHUNDREDWEIGHT)
+
+    @staticmethod
+    def from_longTons(value: float) -> 'Mass':
+        return Mass(value, MassUnit.LONGTON)
+
+    @staticmethod
+    def from_earthMasses(value: float) -> 'Mass':
+        return Mass(value, MassUnit.EARTHMASS)
+
+    @staticmethod
+    def from_solarMasses(value: float) -> 'Mass':
+        return Mass(value, MassUnit.SOLARMASS)
+
+    # Conversion shorthands
+    def gigatonnes(self) -> float:
+        return self.as_unit(MassUnit.GIGATONNE)
+
+    def megatonnes(self) -> float:
+        return self.as_unit(MassUnit.MEGATONNE)
+
+    def kilotonnes(self) -> float:
+        return self.as_unit(MassUnit.KILOTONNE)
+
+    def tonnes(self) -> float:
+        return self.as_unit(MassUnit.TONNE)
+
+    def kilograms(self) -> float:
+        return self.as_unit(MassUnit.KILOGRAM)
+
+    def hectograms(self) -> float:
+        return self.as_unit(MassUnit.HECTOGRAM)
+
+    def decagrams(self) -> float:
+        return self.as_unit(MassUnit.DECAGRAM)
+
+    def grams(self) -> float:
+        return self.as_unit(MassUnit.GRAM)
+
+    def decigrams(self) -> float:
+        return self.as_unit(MassUnit.DECIGRAM)
+
+    def centigrams(self) -> float:
+        return self.as_unit(MassUnit.CENTIGRAM)
+
+    def milligrams(self) -> float:
+        return self.as_unit(MassUnit.MILLIGRAM)
+
+    def micrograms(self) -> float:
+        return self.as_unit(MassUnit.MICROGRAM)
+
+    def nanograms(self) -> float:
+        return self.as_unit(MassUnit.NANOGRAM)
+
+    def megapounds(self) -> float:
+        return self.as_unit(MassUnit.MEGAPOUND)
+
+    def kilopounds(self) -> float:
+        return self.as_unit(MassUnit.KILOPOUND)
+
+    def pounds(self) -> float:
+        return self.as_unit(MassUnit.POUND)
+
+    def ounces(self) -> float:
+        return self.as_unit(MassUnit.OUNCE)
+
+    def grains(self) -> float:
+        return self.as_unit(MassUnit.GRAIN)
+
+    def shortHundredweights(self) -> float:
+        return self.as_unit(MassUnit.SHORTHUNDREDWEIGHT)
+
+    def shortTons(self) -> float:
+        return self.as_unit(MassUnit.SHORTTON)
+
+    def stones(self) -> float:
+        return self.as_unit(MassUnit.STONE)
+
+    def longHundredweights(self) -> float:
+        return self.as_unit(MassUnit.LONGHUNDREDWEIGHT)
+
+    def longTons(self) -> float:
+        return self.as_unit(MassUnit.LONGTON)
+
+    def earthMasses(self) -> float:
+        return self.as_unit(MassUnit.EARTHMASS)
+
+    def solarMasses(self) -> float:
+        return self.as_unit(MassUnit.SOLARMASS)
+
     def _to_base_unit(self) -> 'Mass':
         return self.to_unit(self.base_unit)
 
