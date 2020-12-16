@@ -143,27 +143,35 @@ class Time:
         return Time(value, TimeUnit.NANOSECOND)
 
     # Conversion shorthands
+    @property
     def weeks(self) -> float:
         return self.as_unit(TimeUnit.WEEK)
 
+    @property
     def days(self) -> float:
         return self.as_unit(TimeUnit.DAY)
 
+    @property
     def hours(self) -> float:
         return self.as_unit(TimeUnit.HOUR)
 
+    @property
     def minutes(self) -> float:
         return self.as_unit(TimeUnit.MINUTE)
 
+    @property
     def seconds(self) -> float:
         return self.as_unit(TimeUnit.SECOND)
 
+    @property
     def milliseconds(self) -> float:
         return self.as_unit(TimeUnit.MILLISECOND)
 
+    @property
     def microseconds(self) -> float:
         return self.as_unit(TimeUnit.MICROSECOND)
 
+    @property
     def nanoseconds(self) -> float:
         return self.as_unit(TimeUnit.NANOSECOND)
 
