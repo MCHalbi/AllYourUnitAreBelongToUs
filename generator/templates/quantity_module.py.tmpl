@@ -118,6 +118,7 @@ class {{ quantity['name'] }}:
       {% else %}
         {% set unit_plural = unit['name'][0].lower() + unit['name'][1:] + 's' %}
       {% endif %}
+    @property
     def {{ unit_plural }}(self) -> float:
         return self.as_unit({{ quantity['name'] }}Unit.{{ unit['name'].upper() }})
 

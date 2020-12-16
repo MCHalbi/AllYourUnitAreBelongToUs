@@ -173,42 +173,55 @@ class Length:
         return Length(value, LengthUnit.MILE)
 
     # Conversion shorthands
+    @property
     def kilometers(self) -> float:
         return self.as_unit(LengthUnit.KILOMETER)
 
+    @property
     def hectometers(self) -> float:
         return self.as_unit(LengthUnit.HECTOMETER)
 
+    @property
     def decameters(self) -> float:
         return self.as_unit(LengthUnit.DECAMETER)
 
+    @property
     def meters(self) -> float:
         return self.as_unit(LengthUnit.METER)
 
+    @property
     def decimeters(self) -> float:
         return self.as_unit(LengthUnit.DECIMETER)
 
+    @property
     def centimeters(self) -> float:
         return self.as_unit(LengthUnit.CENTIMETER)
 
+    @property
     def millimeters(self) -> float:
         return self.as_unit(LengthUnit.MILLIMETER)
 
+    @property
     def micrometers(self) -> float:
         return self.as_unit(LengthUnit.MICROMETER)
 
+    @property
     def nanometers(self) -> float:
         return self.as_unit(LengthUnit.NANOMETER)
 
+    @property
     def inches(self) -> float:
         return self.as_unit(LengthUnit.INCH)
 
+    @property
     def feet(self) -> float:
         return self.as_unit(LengthUnit.FOOT)
 
+    @property
     def yards(self) -> float:
         return self.as_unit(LengthUnit.YARD)
 
+    @property
     def miles(self) -> float:
         return self.as_unit(LengthUnit.MILE)
 

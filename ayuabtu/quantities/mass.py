@@ -245,78 +245,103 @@ class Mass:
         return Mass(value, MassUnit.SOLARMASS)
 
     # Conversion shorthands
+    @property
     def gigatonnes(self) -> float:
         return self.as_unit(MassUnit.GIGATONNE)
 
+    @property
     def megatonnes(self) -> float:
         return self.as_unit(MassUnit.MEGATONNE)
 
+    @property
     def kilotonnes(self) -> float:
         return self.as_unit(MassUnit.KILOTONNE)
 
+    @property
     def tonnes(self) -> float:
         return self.as_unit(MassUnit.TONNE)
 
+    @property
     def kilograms(self) -> float:
         return self.as_unit(MassUnit.KILOGRAM)
 
+    @property
     def hectograms(self) -> float:
         return self.as_unit(MassUnit.HECTOGRAM)
 
+    @property
     def decagrams(self) -> float:
         return self.as_unit(MassUnit.DECAGRAM)
 
+    @property
     def grams(self) -> float:
         return self.as_unit(MassUnit.GRAM)
 
+    @property
     def decigrams(self) -> float:
         return self.as_unit(MassUnit.DECIGRAM)
 
+    @property
     def centigrams(self) -> float:
         return self.as_unit(MassUnit.CENTIGRAM)
 
+    @property
     def milligrams(self) -> float:
         return self.as_unit(MassUnit.MILLIGRAM)
 
+    @property
     def micrograms(self) -> float:
         return self.as_unit(MassUnit.MICROGRAM)
 
+    @property
     def nanograms(self) -> float:
         return self.as_unit(MassUnit.NANOGRAM)
 
+    @property
     def megapounds(self) -> float:
         return self.as_unit(MassUnit.MEGAPOUND)
 
+    @property
     def kilopounds(self) -> float:
         return self.as_unit(MassUnit.KILOPOUND)
 
+    @property
     def pounds(self) -> float:
         return self.as_unit(MassUnit.POUND)
 
+    @property
     def ounces(self) -> float:
         return self.as_unit(MassUnit.OUNCE)
 
+    @property
     def grains(self) -> float:
         return self.as_unit(MassUnit.GRAIN)
 
+    @property
     def shortHundredweights(self) -> float:
         return self.as_unit(MassUnit.SHORTHUNDREDWEIGHT)
 
+    @property
     def shortTons(self) -> float:
         return self.as_unit(MassUnit.SHORTTON)
 
+    @property
     def stones(self) -> float:
         return self.as_unit(MassUnit.STONE)
 
+    @property
     def longHundredweights(self) -> float:
         return self.as_unit(MassUnit.LONGHUNDREDWEIGHT)
 
+    @property
     def longTons(self) -> float:
         return self.as_unit(MassUnit.LONGTON)
 
+    @property
     def earthMasses(self) -> float:
         return self.as_unit(MassUnit.EARTHMASS)
 
+    @property
     def solarMasses(self) -> float:
         return self.as_unit(MassUnit.SOLARMASS)
 

@@ -143,27 +143,35 @@ class ElectricCurrent:
         return ElectricCurrent(value, ElectricCurrentUnit.PICOAMPERE)
 
     # Conversion shorthands
+    @property
     def megaamperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.MEGAAMPERE)
 
+    @property
     def kiloamperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.KILOAMPERE)
 
+    @property
     def amperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.AMPERE)
 
+    @property
     def centiamperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.CENTIAMPERE)
 
+    @property
     def milliamperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.MILLIAMPERE)
 
+    @property
     def microamperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.MICROAMPERE)
 
+    @property
     def nanoamperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.NANOAMPERE)
 
+    @property
     def picoamperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.PICOAMPERE)
 
