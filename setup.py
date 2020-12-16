@@ -5,7 +5,8 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='ayuabtu',
-    version='0.0.1',
+    version_config=True,
+    setup_requires=['setuptools-git-versioning']
     author='Lukas Halbritter',
     author_email='halbi93@gmx.de',
     description='A package for units.',
