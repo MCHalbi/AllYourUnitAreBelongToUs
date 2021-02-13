@@ -70,7 +70,20 @@
         "factor": "1609.34",
         "abbreviation": "mi"
       }
-    ]
+    ],
+    "operators": {
+      "mul": [
+        {
+          "other": "Length",
+          "result": "Area"
+        },
+        {
+          "other": "Area",
+          "result": "Volume"
+        }
+      ],
+      "div": []
+    }
   },
   {
     "name": "ElectricCurrent",
@@ -116,7 +129,8 @@
         "factor": "1e-12",
         "abbreviation": "pA"
       }
-    ]
+    ],
+    "operators": {}
   },
   {
     "name": "Time",
@@ -162,7 +176,8 @@
         "factor": "1e-9",
         "abbreviation": "ns"
       }
-    ]
+    ],
+    "operators": {}
   },
   {
     "name": "Mass",
@@ -295,6 +310,111 @@
         "abbreviation": "M☉",
         "plural": "SolarMasses"
       }
-    ]
+    ],
+    "operators": {}
+  },
+  {
+    "name": "Area",
+    "baseunit": "SquareMeter",
+    "units": [
+      {
+        "name": "SquareKilometer",
+        "factor": "1e6",
+        "abbreviation": "km²"
+      },
+      {
+        "name": "Hectare",
+        "factor": "1e4",
+        "abbreviation": "ha"
+      },
+      {
+        "name": "SquareMeter",
+        "factor": "1",
+        "abbreviation": "m²"
+      },
+      {
+        "name": "SquareDecimeter",
+        "factor": "1e-2",
+        "abbreviation": "dm²"
+      },
+      {
+        "name": "SquareCentimeter",
+        "factor": "1e-4",
+        "abbreviation": "cm²"
+      },
+      {
+        "name": "SquareMillimeter",
+        "factor": "1e-6",
+        "abbreviation": "mm²"
+      },
+      {
+        "name": "SquareMicrometer",
+        "factor": "1e-12",
+        "abbreviation": "μm²"
+      },
+      {
+        "name": "SquareInch",
+        "factor": "6.4516e-4",
+        "abbreviation": "in²"
+      },
+      {
+        "name": "SquareFoot",
+        "factor": "9.2903e-2",
+        "abbreviation": "ft²"
+      },
+      {
+        "name": "SquareYard",
+        "factor": "8.36127e-1",
+        "abbreviation": "yd²"
+      },
+      {
+        "name": "SquareMile",
+        "factor": "2.59e6",
+        "abbreviation": "mi²"
+      },
+      {
+        "name": "Acre",
+        "factor": "4046.85642",
+        "abbreviation": "ac"
+      }
+    ],
+    "operators": {
+      "mul": [
+        {
+          "other": "Length",
+          "result": "Volume"
+        }
+      ],
+      "div": [
+        {
+          "other": "Length",
+          "result": "Length"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Volume",
+    "baseunit": "CubicMeter",
+    "units": [
+      {
+        "name": "CubicMeter",
+        "factor": "1",
+        "abbreviation": "m³"
+      }
+    ],
+    "operators": {
+      "mul": [],
+      "div": [
+        {
+          "other": "Length",
+          "result": "Area"
+        },
+        {
+          "other": "Area",
+          "result": "Length"
+        }
+      ]
+    }
   }
 ]

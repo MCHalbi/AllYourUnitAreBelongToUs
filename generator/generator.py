@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import shutil
+from typing import Set
 
 LOGGER = logging.getLogger(__name__)
 
@@ -94,7 +95,13 @@ class Generator:
             self._quantities_dir,
             self._decapitalize(quantity['name']) + '.py')
 
-        content = self._render_template('quantity_module', quantity=quantity)
+        content = self._render_template(
+            'quantity_module',
+            quantity=quantity,
+            mul_type_imports=self._create_quantity_imports(quantity, 'mul'),
+            div_type_imports=self._create_quantity_imports(quantity, 'div'),
+            mul_operators=quantity['operators'].get('mul', {}),
+            div_operators=quantity['operators'].get('div', {}))
 
         self._write_file(quantity_path, content)
 
@@ -130,6 +137,13 @@ class Generator:
         LOGGER.info("Generating %s.", path)
         with open(path, 'w') as f:
             f.write(content)
+
+    def _create_quantity_imports(self, quantity, op_type: str) -> Set[str]:
+        return {
+            "from .{} import {}".format(self._decapitalize(val_type), val_type)
+            for op in quantity['operators'].get(op_type, {})
+            for val_type in op.values()
+            if val_type != quantity['name']}
 
     @staticmethod
     def _decapitalize(string: str):

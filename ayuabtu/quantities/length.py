@@ -70,25 +70,54 @@ class Length:
         self._raise_type_error_for_undefined_operator(other, '-')
 
     def __mul__(self, other):
-        if type(other) in (float, int):
-            return Length(self._value * other, self._unit)
+        from .volume import Volume
+        from .area import Area
 
-        self._raise_type_error_for_undefined_operator(other, '*')
+        if type(other) in (float, int):
+            result = Length(self._value * other, self._unit)
+        elif type(other) is Length:
+            result = Area(
+                self.as_unit(self.base_unit) * other.as_unit(other.base_unit),
+                Area.base_unit)
+        elif type(other) is Area:
+            result = Volume(
+                self.as_unit(self.base_unit) * other.as_unit(other.base_unit),
+                Volume.base_unit)
+        else:
+            self._raise_type_error_for_undefined_operator(other, '*')
+
+        return result
 
     def __rmul__(self, other):
-        if type(other) in (float, int):
+        from .volume import Volume
+        from .area import Area
+
+        if type(other) in (float, int, Length, Area):
             return self * other
 
         self._raise_type_error_for_undefined_operator(other, '*')
 
     def __truediv__(self, other):
-        if type(other) is Length:
-            return (self._get_value_in_base_unit()
-                    / other.as_unit(other.base_unit))
-        if type(other) in (float, int):
-            return Length(self._value / other, self._unit)
 
-        self._raise_type_error_for_undefined_operator(other, '/')
+        if type(other) is Length:
+            result = (self._get_value_in_base_unit()
+                    / other.as_unit(other.base_unit))
+        elif type(other) in (float, int):
+            result = Length(self._value / other, self._unit)
+        else:
+            self._raise_type_error_for_undefined_operator(other, '/')
+
+        return result
+
+    def __pow__(self, other):
+        if type(other) in (float, int):
+            result = 1
+            for _ in range(other):
+              result *= self
+
+            return result
+        else:
+            self._raise_type_error_for_undefined_operator(other, '**')
 
     def _raise_type_error_for_undefined_operator(
             self, other, operator: str) -> None:

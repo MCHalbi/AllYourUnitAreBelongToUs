@@ -60,25 +60,42 @@ class ElectricCurrent:
         self._raise_type_error_for_undefined_operator(other, '-')
 
     def __mul__(self, other):
-        if type(other) in (float, int):
-            return ElectricCurrent(self._value * other, self._unit)
 
-        self._raise_type_error_for_undefined_operator(other, '*')
+        if type(other) in (float, int):
+            result = ElectricCurrent(self._value * other, self._unit)
+        else:
+            self._raise_type_error_for_undefined_operator(other, '*')
+
+        return result
 
     def __rmul__(self, other):
-        if type(other) in (float, int):
+
+        if type(other) in (float, int, ):
             return self * other
 
         self._raise_type_error_for_undefined_operator(other, '*')
 
     def __truediv__(self, other):
-        if type(other) is ElectricCurrent:
-            return (self._get_value_in_base_unit()
-                    / other.as_unit(other.base_unit))
-        if type(other) in (float, int):
-            return ElectricCurrent(self._value / other, self._unit)
 
-        self._raise_type_error_for_undefined_operator(other, '/')
+        if type(other) is ElectricCurrent:
+            result = (self._get_value_in_base_unit()
+                    / other.as_unit(other.base_unit))
+        elif type(other) in (float, int):
+            result = ElectricCurrent(self._value / other, self._unit)
+        else:
+            self._raise_type_error_for_undefined_operator(other, '/')
+
+        return result
+
+    def __pow__(self, other):
+        if type(other) in (float, int):
+            result = 1
+            for _ in range(other):
+              result *= self
+
+            return result
+        else:
+            self._raise_type_error_for_undefined_operator(other, '**')
 
     def _raise_type_error_for_undefined_operator(
             self, other, operator: str) -> None:

@@ -50,25 +50,63 @@ class {{ quantity['name'] }}:
         self._raise_type_error_for_undefined_operator(other, '-')
 
     def __mul__(self, other):
-        if type(other) in (float, int):
-            return {{ quantity['name'] }}(self._value * other, self._unit)
+        {% for import in mul_type_imports %}
+        {{import}}
+        {% endfor %}
 
-        self._raise_type_error_for_undefined_operator(other, '*')
+        if type(other) in (float, int):
+            result = {{ quantity['name'] }}(self._value * other, self._unit)
+        {% for operator in mul_operators %}
+        elif type(other) is {{ operator['other'] }}:
+            result = {{ operator['result'] }}(
+                self.as_unit(self.base_unit) * other.as_unit(other.base_unit),
+                {{ operator['result'] }}.base_unit)
+        {% endfor %}
+        else:
+            self._raise_type_error_for_undefined_operator(other, '*')
+
+        return result
 
     def __rmul__(self, other):
-        if type(other) in (float, int):
+        {% for import in mul_type_imports %}
+        {{import}}
+        {% endfor %}
+
+        if type(other) in (float, int, {{ mul_operators|map(attribute='other')|join(', ') }}):
             return self * other
 
         self._raise_type_error_for_undefined_operator(other, '*')
 
     def __truediv__(self, other):
-        if type(other) is {{ quantity['name'] }}:
-            return (self._get_value_in_base_unit()
-                    / other.as_unit(other.base_unit))
-        if type(other) in (float, int):
-            return {{ quantity['name'] }}(self._value / other, self._unit)
+        {% for import in div_type_imports %}
+        {{import}}
+        {% endfor %}
 
-        self._raise_type_error_for_undefined_operator(other, '/')
+        if type(other) is {{ quantity['name'] }}:
+            result = (self._get_value_in_base_unit()
+                    / other.as_unit(other.base_unit))
+        elif type(other) in (float, int):
+            result = {{ quantity['name'] }}(self._value / other, self._unit)
+        {% for operator in div_operators %}
+        elif type(other) is {{ operator['other'] }}:
+            result = {{ operator['result'] }}(
+                self.as_unit(self.base_unit) / other.as_unit(other.base_unit),
+                {{ operator['result'] }}.base_unit)
+        {% endfor %}
+        else:
+            self._raise_type_error_for_undefined_operator(other, '/')
+
+        return result
+
+    def __pow__(self, other):
+        if type(other) in (float, int):
+            result = 1
+            for _ in range(other):
+              result *= self
+
+            return result
+        else:
+            self._raise_type_error_for_undefined_operator(other, '**')
 
     def _raise_type_error_for_undefined_operator(
             self, other, operator: str) -> None:
