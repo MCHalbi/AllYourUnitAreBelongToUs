@@ -1,0 +1,1 @@
+{"baseunit": "Newton", "name": "Force", "operators": {"div": [], "mul": []}, "units": [{"abbreviation": "N", "name": "Newton", "factor": "1"}, {"abbreviation": "dyn", "name": "Dyn", "factor": "1e-5"}]}
