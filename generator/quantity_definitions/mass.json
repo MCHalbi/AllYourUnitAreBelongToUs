@@ -1,0 +1,134 @@
+{
+  "name": "Mass",
+  "baseunit": "Kilogram",
+  "units": [
+    {
+      "name": "Gigatonne",
+      "factor": "1e12",
+      "abbreviation": "Gt"
+    },
+    {
+      "name": "Megatonne",
+      "factor": "1e9",
+      "abbreviation": "Mt"
+    },
+    {
+      "name": "Kilotonne",
+      "factor": "1e6",
+      "abbreviation": "kt"
+    },
+    {
+      "name": "Tonne",
+      "factor": "1e3",
+      "abbreviation": "t"
+    },
+    {
+      "name": "Kilogram",
+      "factor": "1e0",
+      "abbreviation": "kg"
+    },
+    {
+      "name": "Hectogram",
+      "factor": "1e-1",
+      "abbreviation": "hg"
+    },
+    {
+      "name": "Decagram",
+      "factor": "1e-2",
+      "abbreviation": "dag"
+    },
+    {
+      "name": "Gram",
+      "factor": "1e-3",
+      "abbreviation": "g"
+    },
+    {
+      "name": "Decigram",
+      "factor": "1e-4",
+      "abbreviation": "dg"
+    },
+    {
+      "name": "Centigram",
+      "factor": "1e-5",
+      "abbreviation": "cg"
+    },
+    {
+      "name": "Milligram",
+      "factor": "1e-6",
+      "abbreviation": "mg"
+    },
+    {
+      "name": "Microgram",
+      "factor": "1e-9",
+      "abbreviation": "μg"
+    },
+    {
+      "name": "Nanogram",
+      "factor": "1e-12",
+      "abbreviation": "ng"
+    },
+    {
+      "name": "Megapound",
+      "factor": "4.53592370e5",
+      "abbreviation": "Mlb."
+    },
+    {
+      "name": "Kilopound",
+      "factor": "4.53592370e2",
+      "abbreviation": "klb."
+    },
+    {
+      "name": "Pound",
+      "factor": "4.53592370e-1",
+      "abbreviation": "lb."
+    },
+    {
+      "name": "Ounce",
+      "factor": "2.8349523125e-2",
+      "abbreviation": "oz."
+    },
+    {
+      "name": "Grain",
+      "factor": "6.479891e-5",
+      "abbreviation": "gr."
+    },
+    {
+      "name": "ShortHundredweight",
+      "factor": "45.359237",
+      "abbreviation": "cwt."
+    },
+    {
+      "name": "ShortTon",
+      "factor": "907.18474",
+      "abbreviation": "to."
+    },
+    {
+      "name": "Stone",
+      "factor": "6.35029318",
+      "abbreviation": "st."
+    },
+    {
+      "name": "LongHundredweight",
+      "factor": "50.80234544",
+      "abbreviation": "cwt."
+    },
+    {
+      "name": "LongTon",
+      "factor": "1016.0469088",
+      "abbreviation": "to."
+    },
+    {
+      "name": "EarthMass",
+      "factor": "5.9723e24",
+      "abbreviation": "M⊕",
+      "plural": "EarthMasses"
+    },
+    {
+      "name": "SolarMass",
+      "factor": "1.98892e30",
+      "abbreviation": "M☉",
+      "plural": "SolarMasses"
+    }
+  ],
+  "operators": {}
+}

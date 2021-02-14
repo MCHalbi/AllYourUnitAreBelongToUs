@@ -17,10 +17,10 @@ def parse_arguments():
 
     parser.add_argument(
         '-s', '--source',
-        default='./quantities.json',
+        default='./quantity_definitions/',
         type=str,
-        help='The path to the json file from which the package should be '
-             'generated.')
+        help='The path to the directory with quantity specifications from '
+             'which the package should be generated.')
 
     parser.add_argument(
         '-d', '--templates',

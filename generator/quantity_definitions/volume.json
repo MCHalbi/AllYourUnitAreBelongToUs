@@ -1,0 +1,24 @@
+{
+  "name": "Volume",
+  "baseunit": "CubicMeter",
+  "units": [
+    {
+      "name": "CubicMeter",
+      "factor": "1",
+      "abbreviation": "m³"
+    }
+  ],
+  "operators": {
+    "mul": [],
+    "div": [
+      {
+        "other": "Length",
+        "result": "Area"
+      },
+      {
+        "other": "Area",
+        "result": "Length"
+      }
+    ]
+  }
+}

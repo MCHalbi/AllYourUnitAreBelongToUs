@@ -1,0 +1,86 @@
+{
+  "name": "Length",
+  "baseunit": "Meter",
+  "units": [
+    {
+      "name": "Kilometer",
+      "factor": "1e3",
+      "abbreviation": "km"
+    },
+    {
+      "name": "Hectometer",
+      "factor": "1e2",
+      "abbreviation": "hm"
+    },
+    {
+      "name": "Decameter",
+      "factor": "1e1",
+      "abbreviation": "dam"
+    },
+    {
+      "name": "Meter",
+      "factor": "1e0",
+      "abbreviation": "m"
+    },
+    {
+      "name": "Decimeter",
+      "factor": "1e-1",
+      "abbreviation": "dm"
+    },
+    {
+      "name": "Centimeter",
+      "factor": "1e-2",
+      "abbreviation": "cm"
+    },
+    {
+      "name": "Millimeter",
+      "factor": "1e-3",
+      "abbreviation": "mm"
+    },
+    {
+      "name": "Micrometer",
+      "factor": "1e-6",
+      "abbreviation": "μm"
+    },
+    {
+      "name": "Nanometer",
+      "factor": "1e-9",
+      "abbreviation": "nm"
+    },
+    {
+      "name": "Inch",
+      "factor": "0.0254",
+      "abbreviation": "in",
+      "plural": "Inches"
+    },
+    {
+      "name": "Foot",
+      "factor": "0.3048",
+      "abbreviation": "ft",
+      "plural": "Feet"
+    },
+    {
+      "name": "Yard",
+      "factor": "0.9144",
+      "abbreviation": "yd"
+    },
+    {
+      "name": "Mile",
+      "factor": "1609.34",
+      "abbreviation": "mi"
+    }
+  ],
+  "operators": {
+    "mul": [
+      {
+        "other": "Length",
+        "result": "Area"
+      },
+      {
+        "other": "Area",
+        "result": "Volume"
+      }
+    ],
+    "div": []
+  }
+}

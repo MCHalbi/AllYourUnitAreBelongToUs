@@ -13,10 +13,10 @@ LOGGER = logging.getLogger(__name__)
 class Generator:
     def __init__(
             self,
-            source_file: str,
+            source_directory: str,
             target_directory: str,
             template_directory: str) -> None:
-        self._source = source_file
+        self._source_dir = source_directory
         self._target_dir = target_directory
         self._template_dir = template_directory
         self._template_env = Environment(
@@ -30,21 +30,22 @@ class Generator:
         self._generate_modules()
 
     def _create_directory_structure(self, force_overwrite: bool) -> None:
+        LOGGER.info('Creating directory structure.')
         if os.path.exists(self._target_dir):
             self._raise_error_if_target_is_no_directory()
             self._raise_error_if_force_is_false(force_overwrite)
-            LOGGER.info('Removing existing target directory.')
+            LOGGER.debug('Removing existing target directory.')
             shutil.rmtree(self._target_dir)
 
-        LOGGER.info('Creating %s.', self._target_dir)
+        LOGGER.debug('Creating %s.', self._target_dir)
         os.mkdir(self._target_dir)
 
         self._quantities_dir = os.path.join(self._target_dir, 'quantities')
-        LOGGER.info('Creating %s.', self._quantities_dir)
+        LOGGER.debug('Creating %s.', self._quantities_dir)
         os.mkdir(self._quantities_dir)
 
         self._units_dir = os.path.join(self._target_dir, 'units')
-        LOGGER.info('Creating %s.', self._units_dir)
+        LOGGER.debug('Creating %s.', self._units_dir)
         os.mkdir(self._units_dir)
 
     def _raise_error_if_target_is_no_directory(self):
@@ -60,17 +61,25 @@ class Generator:
                 'Use --force to overwrite existing files and directories.')
 
     def _generate_modules(self, ):
-        self._load_source_json()
+        self._load_source_files()
         self._generate_package_init()
         self._generate_quantities_init()
         self._generate_quantities()
         self._generate_units_init()
         self._generate_units()
 
-    def _load_source_json(self):
-        LOGGER.info("Loading source file.")
-        with open(self._source) as source:
-            self._quantities = json.load(source)
+    def _load_source_files(self):
+        LOGGER.info("Loading source files.")
+        self._quantities = []
+
+        for filename in os.listdir(self._source_dir):
+            self._load_source_file(filename)
+
+    def _load_source_file(self, filename):
+        filepath = os.path.join(self._source_dir + filename)
+        LOGGER.debug("Loading \"%s\".", filepath)
+        with open(filepath) as source:
+            self._quantities.append(json.load(source))
 
     def _generate_package_init(self):
         init_path = os.path.join(self._target_dir, '__init__.py')
@@ -117,6 +126,9 @@ class Generator:
         LOGGER.info("Generating unit files.")
         for quantity in self._quantities:
             self._generate_unit_module(quantity)
+        LOGGER.info(
+            "Generated modules for %d quantities.",
+            len(self._quantities))
 
     def _generate_unit_module(self, quantity):
         unit_path = os.path.join(
