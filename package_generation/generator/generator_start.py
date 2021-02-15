@@ -17,21 +17,21 @@ def parse_arguments():
 
     parser.add_argument(
         '-s', '--source',
-        default='./quantity_definitions/',
+        default='../quantity_definitions/',
         type=str,
         help='The path to the directory with quantity specifications from '
              'which the package should be generated.')
 
     parser.add_argument(
         '-d', '--templates',
-        default='./templates/',
+        default='../templates/',
         type=str,
         help='The path to the template directory with templates for the module '
              'files.')
 
     parser.add_argument(
         '-t', '--target',
-        default='../ayuabtu/',
+        default='../../ayuabtu/',
         type=str,
         help='The path to the directory in which the package should be '
              'generated. If the directory does not exist, it is created.')
