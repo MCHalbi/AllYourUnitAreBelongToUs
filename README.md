@@ -9,6 +9,22 @@
 pip install ayuabtu
 ```
 
+## Prerequisites
+AYUABTU itself does not depend on any other package. However, if you wish to add
+your own quantities and units, the [Quantity Manager](#the-quantity-manager-qm)
+and [Package Generator](#re-generating-the-ayuabtu-package) depend on some
+thid-party python packages. The dependencies of the Quantity Manager and its
+shell are:
+
+- [case-conversion](https://github.com/AlejandroFrias/case-conversion)
+- [pandas](https://pypi.org/project/pandas/)
+
+To run the Package Generator, you will need the following packages:
+
+- [Jinja2](https://pypi.org/project/Jinja2/)
+- [case-conversion](https://github.com/AlejandroFrias/case-conversion)
+
+
 ## Usage
 ### Creating quantities
 Create quantities with a given unit:
@@ -59,6 +75,7 @@ For this common usecase, there are also shorthand methods:
 
 ### Quantity arithmetics
 Coming soon ...
+
 
 ## Custom units
 ### The Quantity Manager (QM)
