@@ -10,6 +10,13 @@ class {{ quantity['name'] }}:
         {{ quantity['name'] }}Unit.{{ unit['name'].upper() }}: {{ unit['factor'] }},
     {% endfor %}
     }
+    {% if quantity.get('offset_conversion', False) %}
+    offsets = {
+    {% for unit in quantity['units'] %}
+        {{ quantity['name'] }}Unit.{{ unit['name'].upper() }}: {{ unit['offset'] }},
+    {% endfor %}
+    }
+    {% endif %}
     abbreviations = {
     {% for unit in quantity['units'] %}
         {{ quantity['name'] }}Unit.{{ unit['name'].upper() }}: '{{ unit['abbreviation'] }}',
@@ -167,6 +174,8 @@ class {{ quantity['name'] }}:
     def _get_value_in_base_unit(self) -> float:
         try:
             return self._value * {{ quantity['name'] }}.factors[self._unit]
+            {%- if quantity.get('offset_conversion', False) %} + {{ quantity['name'] }}.offsets[self._unit] {%- endif %}
+
         except KeyError:
             raise NotImplementedError(
                 'Can not convert {0} to base units.'.format(self._unit.name))
