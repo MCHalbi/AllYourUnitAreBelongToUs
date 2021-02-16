@@ -5,3 +5,7 @@ from enum import Enum
 
 class VolumeUnit(Enum):
     CUBICMETER = 1
+    LITER = 2
+    MILLILITER = 3
+    CENTILITER = 4
+    USGALLON = 5

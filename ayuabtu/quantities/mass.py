@@ -234,11 +234,11 @@ class Mass:
         return Mass(value, MassUnit.GRAIN)
 
     @staticmethod
-    def from_shortHundredweights(value: float) -> 'Mass':
+    def from_short_hundredweights(value: float) -> 'Mass':
         return Mass(value, MassUnit.SHORTHUNDREDWEIGHT)
 
     @staticmethod
-    def from_shortTons(value: float) -> 'Mass':
+    def from_short_tons(value: float) -> 'Mass':
         return Mass(value, MassUnit.SHORTTON)
 
     @staticmethod
@@ -246,19 +246,19 @@ class Mass:
         return Mass(value, MassUnit.STONE)
 
     @staticmethod
-    def from_longHundredweights(value: float) -> 'Mass':
+    def from_long_hundredweights(value: float) -> 'Mass':
         return Mass(value, MassUnit.LONGHUNDREDWEIGHT)
 
     @staticmethod
-    def from_longTons(value: float) -> 'Mass':
+    def from_long_tons(value: float) -> 'Mass':
         return Mass(value, MassUnit.LONGTON)
 
     @staticmethod
-    def from_earthMasses(value: float) -> 'Mass':
+    def from_earth_masses(value: float) -> 'Mass':
         return Mass(value, MassUnit.EARTHMASS)
 
     @staticmethod
-    def from_solarMasses(value: float) -> 'Mass':
+    def from_solar_masses(value: float) -> 'Mass':
         return Mass(value, MassUnit.SOLARMASS)
 
     # Conversion shorthands
@@ -335,11 +335,11 @@ class Mass:
         return self.as_unit(MassUnit.GRAIN)
 
     @property
-    def shortHundredweights(self) -> float:
+    def short_hundredweights(self) -> float:
         return self.as_unit(MassUnit.SHORTHUNDREDWEIGHT)
 
     @property
-    def shortTons(self) -> float:
+    def short_tons(self) -> float:
         return self.as_unit(MassUnit.SHORTTON)
 
     @property
@@ -347,19 +347,19 @@ class Mass:
         return self.as_unit(MassUnit.STONE)
 
     @property
-    def longHundredweights(self) -> float:
+    def long_hundredweights(self) -> float:
         return self.as_unit(MassUnit.LONGHUNDREDWEIGHT)
 
     @property
-    def longTons(self) -> float:
+    def long_tons(self) -> float:
         return self.as_unit(MassUnit.LONGTON)
 
     @property
-    def earthMasses(self) -> float:
+    def earth_masses(self) -> float:
         return self.as_unit(MassUnit.EARTHMASS)
 
     @property
-    def solarMasses(self) -> float:
+    def solar_masses(self) -> float:
         return self.as_unit(MassUnit.SOLARMASS)
 
     def _to_base_unit(self) -> 'Mass':

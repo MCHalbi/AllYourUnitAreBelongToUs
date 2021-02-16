@@ -1,5 +1,3 @@
 {% for quantity in quantities %}
-{% set camelCaseName = quantity['name'][0].lower() + quantity['name'][1:] %}
-{% set pascalCaseName = quantity['name'] %}
-from .{{ camelCaseName }} import {{ pascalCaseName }}
+from .{{ snakecase(quantity['name']) }} import {{ pascalcase(quantity['name']) }}
 {% endfor %}

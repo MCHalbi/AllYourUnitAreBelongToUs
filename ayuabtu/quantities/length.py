@@ -9,7 +9,7 @@ class Length:
         LengthUnit.KILOMETER: 1e3,
         LengthUnit.HECTOMETER: 1e2,
         LengthUnit.DECAMETER: 1e1,
-        LengthUnit.METER: 1e0,
+        LengthUnit.METER: 1,
         LengthUnit.DECIMETER: 1e-1,
         LengthUnit.CENTIMETER: 1e-2,
         LengthUnit.MILLIMETER: 1e-3,
@@ -19,6 +19,25 @@ class Length:
         LengthUnit.FOOT: 0.3048,
         LengthUnit.YARD: 0.9144,
         LengthUnit.MILE: 1609.34,
+        LengthUnit.ASTRONOMICALUNIT: 1.4959787070e11,
+        LengthUnit.CHAIN: 20.1168,
+        LengthUnit.DTPPICA: 1 / 236.220472441,
+        LengthUnit.DTPPOINT: 2.54e-2 / 72,
+        LengthUnit.FATHOM: 1.8288,
+        LengthUnit.HAND: 1.016e-1,
+        LengthUnit.KILOLIGHTYEAR: 9.4607304725808e18,
+        LengthUnit.LIGHTYEAR: 9.4607304725808e15,
+        LengthUnit.KILOPARSEC: 3.085677581e19,
+        LengthUnit.PARSEC: 3.085677581e16,
+        LengthUnit.MEGALIGHTYEAR: 9.4607304725808e21,
+        LengthUnit.MEGAPARSEC: 3.085677581e22,
+        LengthUnit.MICROINCH: 2.54e-8,
+        LengthUnit.MIL: 2.54e-5,
+        LengthUnit.NAUTICALMILE: 1852,
+        LengthUnit.SHACKLE: 27.432,
+        LengthUnit.SOLARRADIUS: 6.96342e8,
+        LengthUnit.TWIP: 1 / 56692.913385826,
+        LengthUnit.USSURVEYFOOT: 1200 / 3937,
     }
     abbreviations = {
         LengthUnit.KILOMETER: 'km',
@@ -34,6 +53,25 @@ class Length:
         LengthUnit.FOOT: 'ft',
         LengthUnit.YARD: 'yd',
         LengthUnit.MILE: 'mi',
+        LengthUnit.ASTRONOMICALUNIT: 'au',
+        LengthUnit.CHAIN: 'ch',
+        LengthUnit.DTPPICA: 'pica',
+        LengthUnit.DTPPOINT: 'pt',
+        LengthUnit.FATHOM: 'fathom',
+        LengthUnit.HAND: 'h',
+        LengthUnit.KILOLIGHTYEAR: 'kly',
+        LengthUnit.LIGHTYEAR: 'ly',
+        LengthUnit.KILOPARSEC: 'kpc',
+        LengthUnit.PARSEC: 'pc',
+        LengthUnit.MEGALIGHTYEAR: 'Mly',
+        LengthUnit.MEGAPARSEC: 'Mpc',
+        LengthUnit.MICROINCH: 'μin',
+        LengthUnit.MIL: 'mil',
+        LengthUnit.NAUTICALMILE: 'NM',
+        LengthUnit.SHACKLE: 'shackle',
+        LengthUnit.SOLARRADIUS: 'R⊙',
+        LengthUnit.TWIP: 'twip',
+        LengthUnit.USSURVEYFOOT: 'ft (U.S.)',
     }
 
     def __init__(self, value: float, unit: 'LengthUnit') -> None:
@@ -201,6 +239,82 @@ class Length:
     def from_miles(value: float) -> 'Length':
         return Length(value, LengthUnit.MILE)
 
+    @staticmethod
+    def from_astronomical_units(value: float) -> 'Length':
+        return Length(value, LengthUnit.ASTRONOMICALUNIT)
+
+    @staticmethod
+    def from_chains(value: float) -> 'Length':
+        return Length(value, LengthUnit.CHAIN)
+
+    @staticmethod
+    def from_dtp_picas(value: float) -> 'Length':
+        return Length(value, LengthUnit.DTPPICA)
+
+    @staticmethod
+    def from_dtp_points(value: float) -> 'Length':
+        return Length(value, LengthUnit.DTPPOINT)
+
+    @staticmethod
+    def from_fathoms(value: float) -> 'Length':
+        return Length(value, LengthUnit.FATHOM)
+
+    @staticmethod
+    def from_hands(value: float) -> 'Length':
+        return Length(value, LengthUnit.HAND)
+
+    @staticmethod
+    def from_kilolight_years(value: float) -> 'Length':
+        return Length(value, LengthUnit.KILOLIGHTYEAR)
+
+    @staticmethod
+    def from_light_years(value: float) -> 'Length':
+        return Length(value, LengthUnit.LIGHTYEAR)
+
+    @staticmethod
+    def from_kiloparsecs(value: float) -> 'Length':
+        return Length(value, LengthUnit.KILOPARSEC)
+
+    @staticmethod
+    def from_parsecs(value: float) -> 'Length':
+        return Length(value, LengthUnit.PARSEC)
+
+    @staticmethod
+    def from_megalight_years(value: float) -> 'Length':
+        return Length(value, LengthUnit.MEGALIGHTYEAR)
+
+    @staticmethod
+    def from_megaparsecs(value: float) -> 'Length':
+        return Length(value, LengthUnit.MEGAPARSEC)
+
+    @staticmethod
+    def from_microinches(value: float) -> 'Length':
+        return Length(value, LengthUnit.MICROINCH)
+
+    @staticmethod
+    def from_mils(value: float) -> 'Length':
+        return Length(value, LengthUnit.MIL)
+
+    @staticmethod
+    def from_nautical_miles(value: float) -> 'Length':
+        return Length(value, LengthUnit.NAUTICALMILE)
+
+    @staticmethod
+    def from_shackles(value: float) -> 'Length':
+        return Length(value, LengthUnit.SHACKLE)
+
+    @staticmethod
+    def from_solar_radii(value: float) -> 'Length':
+        return Length(value, LengthUnit.SOLARRADIUS)
+
+    @staticmethod
+    def from_twips(value: float) -> 'Length':
+        return Length(value, LengthUnit.TWIP)
+
+    @staticmethod
+    def from_us_survey_feet(value: float) -> 'Length':
+        return Length(value, LengthUnit.USSURVEYFOOT)
+
     # Conversion shorthands
     @property
     def kilometers(self) -> float:
@@ -253,6 +367,82 @@ class Length:
     @property
     def miles(self) -> float:
         return self.as_unit(LengthUnit.MILE)
+
+    @property
+    def astronomical_units(self) -> float:
+        return self.as_unit(LengthUnit.ASTRONOMICALUNIT)
+
+    @property
+    def chains(self) -> float:
+        return self.as_unit(LengthUnit.CHAIN)
+
+    @property
+    def dtp_picas(self) -> float:
+        return self.as_unit(LengthUnit.DTPPICA)
+
+    @property
+    def dtp_points(self) -> float:
+        return self.as_unit(LengthUnit.DTPPOINT)
+
+    @property
+    def fathoms(self) -> float:
+        return self.as_unit(LengthUnit.FATHOM)
+
+    @property
+    def hands(self) -> float:
+        return self.as_unit(LengthUnit.HAND)
+
+    @property
+    def kilolight_years(self) -> float:
+        return self.as_unit(LengthUnit.KILOLIGHTYEAR)
+
+    @property
+    def light_years(self) -> float:
+        return self.as_unit(LengthUnit.LIGHTYEAR)
+
+    @property
+    def kiloparsecs(self) -> float:
+        return self.as_unit(LengthUnit.KILOPARSEC)
+
+    @property
+    def parsecs(self) -> float:
+        return self.as_unit(LengthUnit.PARSEC)
+
+    @property
+    def megalight_years(self) -> float:
+        return self.as_unit(LengthUnit.MEGALIGHTYEAR)
+
+    @property
+    def megaparsecs(self) -> float:
+        return self.as_unit(LengthUnit.MEGAPARSEC)
+
+    @property
+    def microinches(self) -> float:
+        return self.as_unit(LengthUnit.MICROINCH)
+
+    @property
+    def mils(self) -> float:
+        return self.as_unit(LengthUnit.MIL)
+
+    @property
+    def nautical_miles(self) -> float:
+        return self.as_unit(LengthUnit.NAUTICALMILE)
+
+    @property
+    def shackles(self) -> float:
+        return self.as_unit(LengthUnit.SHACKLE)
+
+    @property
+    def solar_radii(self) -> float:
+        return self.as_unit(LengthUnit.SOLARRADIUS)
+
+    @property
+    def twips(self) -> float:
+        return self.as_unit(LengthUnit.TWIP)
+
+    @property
+    def us_survey_feet(self) -> float:
+        return self.as_unit(LengthUnit.USSURVEYFOOT)
 
     def _to_base_unit(self) -> 'Length':
         return self.to_unit(self.base_unit)

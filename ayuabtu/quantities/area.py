@@ -149,7 +149,7 @@ class Area:
 
     # Generation shorthands
     @staticmethod
-    def from_squareKilometers(value: float) -> 'Area':
+    def from_square_kilometers(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREKILOMETER)
 
     @staticmethod
@@ -157,39 +157,39 @@ class Area:
         return Area(value, AreaUnit.HECTARE)
 
     @staticmethod
-    def from_squareMeters(value: float) -> 'Area':
+    def from_square_meters(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREMETER)
 
     @staticmethod
-    def from_squareDecimeters(value: float) -> 'Area':
+    def from_square_decimeters(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREDECIMETER)
 
     @staticmethod
-    def from_squareCentimeters(value: float) -> 'Area':
+    def from_square_centimeters(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUARECENTIMETER)
 
     @staticmethod
-    def from_squareMillimeters(value: float) -> 'Area':
+    def from_square_millimeters(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREMILLIMETER)
 
     @staticmethod
-    def from_squareMicrometers(value: float) -> 'Area':
+    def from_square_micrometers(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREMICROMETER)
 
     @staticmethod
-    def from_squareInchs(value: float) -> 'Area':
+    def from_square_inches(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREINCH)
 
     @staticmethod
-    def from_squareFoots(value: float) -> 'Area':
+    def from_square_feet(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREFOOT)
 
     @staticmethod
-    def from_squareYards(value: float) -> 'Area':
+    def from_square_yards(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREYARD)
 
     @staticmethod
-    def from_squareMiles(value: float) -> 'Area':
+    def from_square_miles(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREMILE)
 
     @staticmethod
@@ -198,7 +198,7 @@ class Area:
 
     # Conversion shorthands
     @property
-    def squareKilometers(self) -> float:
+    def square_kilometers(self) -> float:
         return self.as_unit(AreaUnit.SQUAREKILOMETER)
 
     @property
@@ -206,39 +206,39 @@ class Area:
         return self.as_unit(AreaUnit.HECTARE)
 
     @property
-    def squareMeters(self) -> float:
+    def square_meters(self) -> float:
         return self.as_unit(AreaUnit.SQUAREMETER)
 
     @property
-    def squareDecimeters(self) -> float:
+    def square_decimeters(self) -> float:
         return self.as_unit(AreaUnit.SQUAREDECIMETER)
 
     @property
-    def squareCentimeters(self) -> float:
+    def square_centimeters(self) -> float:
         return self.as_unit(AreaUnit.SQUARECENTIMETER)
 
     @property
-    def squareMillimeters(self) -> float:
+    def square_millimeters(self) -> float:
         return self.as_unit(AreaUnit.SQUAREMILLIMETER)
 
     @property
-    def squareMicrometers(self) -> float:
+    def square_micrometers(self) -> float:
         return self.as_unit(AreaUnit.SQUAREMICROMETER)
 
     @property
-    def squareInchs(self) -> float:
+    def square_inches(self) -> float:
         return self.as_unit(AreaUnit.SQUAREINCH)
 
     @property
-    def squareFoots(self) -> float:
+    def square_feet(self) -> float:
         return self.as_unit(AreaUnit.SQUAREFOOT)
 
     @property
-    def squareYards(self) -> float:
+    def square_yards(self) -> float:
         return self.as_unit(AreaUnit.SQUAREYARD)
 
     @property
-    def squareMiles(self) -> float:
+    def square_miles(self) -> float:
         return self.as_unit(AreaUnit.SQUAREMILE)
 
     @property

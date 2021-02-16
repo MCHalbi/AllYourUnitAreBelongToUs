@@ -7,9 +7,17 @@ class Volume:
     base_unit = VolumeUnit.CUBICMETER
     factors = {
         VolumeUnit.CUBICMETER: 1,
+        VolumeUnit.LITER: 1e-3,
+        VolumeUnit.MILLILITER: 1e-6,
+        VolumeUnit.CENTILITER: 1e-5,
+        VolumeUnit.USGALLON: 3.785411784e-3,
     }
     abbreviations = {
         VolumeUnit.CUBICMETER: 'm³',
+        VolumeUnit.LITER: 'l',
+        VolumeUnit.MILLILITER: 'ml',
+        VolumeUnit.CENTILITER: 'cl',
+        VolumeUnit.USGALLON: 'gal (U.S.)',
     }
 
     def __init__(self, value: float, unit: 'VolumeUnit') -> None:
@@ -124,13 +132,45 @@ class Volume:
 
     # Generation shorthands
     @staticmethod
-    def from_cubicMeters(value: float) -> 'Volume':
+    def from_cubic_meters(value: float) -> 'Volume':
         return Volume(value, VolumeUnit.CUBICMETER)
+
+    @staticmethod
+    def from_liters(value: float) -> 'Volume':
+        return Volume(value, VolumeUnit.LITER)
+
+    @staticmethod
+    def from_milliliters(value: float) -> 'Volume':
+        return Volume(value, VolumeUnit.MILLILITER)
+
+    @staticmethod
+    def from_centiliters(value: float) -> 'Volume':
+        return Volume(value, VolumeUnit.CENTILITER)
+
+    @staticmethod
+    def from_us_gallons(value: float) -> 'Volume':
+        return Volume(value, VolumeUnit.USGALLON)
 
     # Conversion shorthands
     @property
-    def cubicMeters(self) -> float:
+    def cubic_meters(self) -> float:
         return self.as_unit(VolumeUnit.CUBICMETER)
+
+    @property
+    def liters(self) -> float:
+        return self.as_unit(VolumeUnit.LITER)
+
+    @property
+    def milliliters(self) -> float:
+        return self.as_unit(VolumeUnit.MILLILITER)
+
+    @property
+    def centiliters(self) -> float:
+        return self.as_unit(VolumeUnit.CENTILITER)
+
+    @property
+    def us_gallons(self) -> float:
+        return self.as_unit(VolumeUnit.USGALLON)
 
     def _to_base_unit(self) -> 'Volume':
         return self.to_unit(self.base_unit)

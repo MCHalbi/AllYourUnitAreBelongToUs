@@ -140,9 +140,9 @@ class {{ quantity['name'] }}:
     # Generation shorthands
     {% for unit in quantity['units'] %}
       {% if 'plural' in unit %}
-        {% set unit_plural = unit['plural'][0].lower() + unit['plural'][1:] %}
+        {% set unit_plural = snakecase(unit['plural']) %}
       {% else %}
-        {% set unit_plural = unit['name'][0].lower() + unit['name'][1:] + 's' %}
+        {% set unit_plural = snakecase(unit['name']) + 's' %}
       {% endif %}
     @staticmethod
     def from_{{ unit_plural }}(value: float) -> '{{ quantity['name'] }}':
@@ -152,9 +152,9 @@ class {{ quantity['name'] }}:
     # Conversion shorthands
     {% for unit in quantity['units'] %}
       {% if 'plural' in unit %}
-        {% set unit_plural = unit['plural'][0].lower() + unit['plural'][1:] %}
+        {% set unit_plural = snakecase(unit['plural']) %}
       {% else %}
-        {% set unit_plural = unit['name'][0].lower() + unit['name'][1:] + 's' %}
+        {% set unit_plural = snakecase(unit['name']) + 's' %}
       {% endif %}
     @property
     def {{ unit_plural }}(self) -> float:

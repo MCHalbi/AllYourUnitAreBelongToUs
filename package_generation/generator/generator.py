@@ -1,11 +1,12 @@
 # Author: Lukas Halbritter <halbritl@informatik.uni-freiburg.de>
 # Copyright 2020
-from jinja2 import Environment, FileSystemLoader, StrictUndefined
 import json
 import logging
 import os
 import shutil
+from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from typing import Set
+from case_conversion import snakecase, pascalcase, camelcase
 
 LOGGER = logging.getLogger(__name__)
 
@@ -102,7 +103,7 @@ class Generator:
     def _generate_quantity_module(self, quantity):
         quantity_path = os.path.join(
             self._quantities_dir,
-            self._decapitalize(quantity['name']) + '.py')
+            snakecase(quantity['name']) + '.py')
 
         content = self._render_template(
             'quantity_module',
@@ -133,7 +134,7 @@ class Generator:
     def _generate_unit_module(self, quantity):
         unit_path = os.path.join(
             self._units_dir,
-            self._decapitalize(quantity['name']) + 'Unit.py')
+            snakecase(quantity['name']) + '_unit.py')
 
         content = self._render_template('unit_module', quantity=quantity)
 
@@ -143,7 +144,11 @@ class Generator:
         LOGGER.debug('Rendering template %s with %s', template_name, kwargs)
         return (self._template_env
                 .get_template(template_name + '.py.tmpl')
-                .render(**kwargs))
+                .render(
+                    pascalcase=pascalcase,
+                    snakecase=snakecase,
+                    camelcase=camelcase,
+                    **kwargs))
 
     def _write_file(self, path: str, content: str) -> None:
         LOGGER.info("Generating %s.", path)
@@ -152,11 +157,7 @@ class Generator:
 
     def _create_quantity_imports(self, quantity, op_type: str) -> Set[str]:
         return {
-            "from .{} import {}".format(self._decapitalize(val_type), val_type)
+            "from .{} import {}".format(snakecase(val_type), val_type)
             for op in quantity['operators'].get(op_type, {})
             for val_type in op.values()
             if val_type != quantity['name']}
-
-    @staticmethod
-    def _decapitalize(string: str):
-        return string[0].lower() + string[1:]
