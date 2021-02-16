@@ -68,6 +68,7 @@ class Generator:
         self._generate_quantities()
         self._generate_units_init()
         self._generate_units()
+        self._generate_readme()
 
     def _load_source_files(self):
         LOGGER.info("Loading source files.")
@@ -91,7 +92,7 @@ class Generator:
         quantities_init_path = os.path.join(self._quantities_dir, '__init__.py')
 
         content = self._render_template(
-            'quantities_init', quantities=self._quantities)
+            'quantities_init.py', quantities=self._quantities)
 
         self._write_file(quantities_init_path, content)
 
@@ -106,7 +107,7 @@ class Generator:
             snakecase(quantity['name']) + '.py')
 
         content = self._render_template(
-            'quantity_module',
+            'quantity_module.py',
             quantity=quantity,
             mul_type_imports=self._create_quantity_imports(quantity, 'mul'),
             div_type_imports=self._create_quantity_imports(quantity, 'div'),
@@ -119,7 +120,7 @@ class Generator:
         units_init_path = os.path.join(self._units_dir, '__init__.py')
 
         content = self._render_template(
-            'units_init', quantities=self._quantities)
+            'units_init.py', quantities=self._quantities)
 
         self._write_file(units_init_path, content)
 
@@ -136,14 +137,27 @@ class Generator:
             self._units_dir,
             snakecase(quantity['name']) + '_unit.py')
 
-        content = self._render_template('unit_module', quantity=quantity)
+        content = self._render_template('unit_module.py', quantity=quantity)
 
         self._write_file(unit_path, content)
+
+    def _generate_readme(self):
+        readme_path = os.path.join(self._target_dir, '../README.md')
+
+        content = self._render_template(
+            'README.md',
+            quantity_count=len(self._quantities),
+            unit_count=sum(
+                len(quantity['units'])
+                for quantity in self._quantities),
+            constant_count=0)
+
+        self._write_file(readme_path, content)
 
     def _render_template(self, template_name: str, **kwargs) -> str:
         LOGGER.debug('Rendering template %s with %s', template_name, kwargs)
         return (self._template_env
-                .get_template(template_name + '.py.tmpl')
+                .get_template(template_name + '.tmpl')
                 .render(
                     pascalcase=pascalcase,
                     snakecase=snakecase,
