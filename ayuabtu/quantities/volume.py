@@ -1,5 +1,5 @@
 # Author: Lukas Halbritter <halbritl@informatik.uni-freiburg.de>
-# Copyright 2020
+# Copyright 2020 - 2021
 from ..units import VolumeUnit
 
 
@@ -70,8 +70,8 @@ class Volume:
         self._raise_type_error_for_undefined_operator(other, '*')
 
     def __truediv__(self, other):
-        from .length import Length
         from .area import Area
+        from .length import Length
 
         if type(other) is Volume:
             result = (self._get_value_in_base_unit()

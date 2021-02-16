@@ -1,5 +1,5 @@
 # Author: Lukas Halbritter <halbritl@informatik.uni-freiburg.de>
-# Copyright 2020
+# Copyright 2020 - 2021
 from ..units import LengthUnit
 
 
@@ -108,8 +108,8 @@ class Length:
         self._raise_type_error_for_undefined_operator(other, '-')
 
     def __mul__(self, other):
-        from .volume import Volume
         from .area import Area
+        from .volume import Volume
 
         if type(other) in (float, int):
             result = Length(self._value * other, self._unit)
@@ -127,8 +127,8 @@ class Length:
         return result
 
     def __rmul__(self, other):
-        from .volume import Volume
         from .area import Area
+        from .volume import Volume
 
         if type(other) in (float, int, Length, Area):
             return self * other

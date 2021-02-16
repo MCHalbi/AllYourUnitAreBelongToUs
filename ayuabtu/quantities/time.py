@@ -1,5 +1,5 @@
 # Author: Lukas Halbritter <halbritl@informatik.uni-freiburg.de>
-# Copyright 2020
+# Copyright 2020 - 2021
 from ..units import TimeUnit
 
 
