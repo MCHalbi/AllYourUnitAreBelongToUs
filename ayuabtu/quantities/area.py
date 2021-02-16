@@ -68,8 +68,8 @@ class Area:
         self._raise_type_error_for_undefined_operator(other, '-')
 
     def __mul__(self, other):
-        from .volume import Volume
         from .length import Length
+        from .volume import Volume
 
         if type(other) in (float, int):
             result = Area(self._value * other, self._unit)
@@ -83,8 +83,8 @@ class Area:
         return result
 
     def __rmul__(self, other):
-        from .volume import Volume
         from .length import Length
+        from .volume import Volume
 
         if type(other) in (float, int, Length):
             return self * other

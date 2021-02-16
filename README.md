@@ -7,7 +7,7 @@
 A Python package with everything you will ever want and need when dealing with
 units.
 
-AYUABTU currently contains 8 quantities with 107
+AYUABTU currently contains 9 quantities with 115
 different units. You can also make use of the 0 predefined
 constants.<br />
 You need you own, fancy units? Define them yourself! With the Quantity

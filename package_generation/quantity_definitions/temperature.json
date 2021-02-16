@@ -1,0 +1,67 @@
+{
+  "operators": {
+    "div": [],
+    "mul": []
+  },
+  "baseunit": "Kelvin",
+  "units": [
+    {
+      "factor": "1",
+      "abbreviation": "K",
+      "offset": "0",
+      "name": "Kelvin",
+      "plural": "Kelvin"
+    },
+    {
+      "factor": "5 / 9",
+      "abbreviation": "\u00b0F",
+      "offset": "2298.35 / 9",
+      "name": "DegreeFahrenheit",
+      "plural": "DegreesFahrenheit"
+    },
+    {
+      "factor": "1",
+      "abbreviation": "\u00b0C",
+      "offset": "237.15",
+      "name": "DegreeCelsius",
+      "plural": "DegreesCelsius"
+    },
+    {
+      "factor": "5 / 9",
+      "abbreviation": "\u00b0Ra",
+      "offset": "0",
+      "name": "DegreeRankine",
+      "plural": "DegreesRankine"
+    },
+    {
+      "factor": "- 2 / 3",
+      "abbreviation": "\u00b0De",
+      "offset": "375.15",
+      "name": "DegreeDelisle",
+      "plural": "DegreesDelisle"
+    },
+    {
+      "factor": "100/33",
+      "abbreviation": "\u00b0N",
+      "offset": "273.15",
+      "name": "DegreeNewton",
+      "plural": "DegreesNewton"
+    },
+    {
+      "factor": "1.25",
+      "offset": "273.15",
+      "abbreviation": "\u00b0R\u00e9",
+      "name": "DegreeReaumur",
+      "plural": "DegreesReaumur"
+    },
+    {
+      "factor": "40 / 21",
+      "offset": "5448.15 / 21",
+      "abbreviation": "\u00b0R\u00f8",
+      "name": "DegreeRoemer",
+      "plural": "DegreesRoemer"
+    }
+  ],
+  "name": "Temperature",
+  "offset_conversion": true
+}
