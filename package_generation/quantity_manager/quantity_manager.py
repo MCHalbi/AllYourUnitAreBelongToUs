@@ -123,7 +123,7 @@ class QuantityManager:
             snakecase(self.current_quantity_name) + '.json')
 
         with open(filename, 'w') as quantity_file:
-            json.dump(self._loaded_quantity, quantity_file)
+            json.dump(self._loaded_quantity, quantity_file, indent=2)
 
         self._available_quantities = self._init_available_quantity_list()
         self._unsafed = False

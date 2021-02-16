@@ -1,1 +1,85 @@
-{"name": "AmountOfSubstance", "operators": {"div": [], "mul": []}, "baseunit": "Mole", "units": [{"name": "Mole", "abbreviation": "mol", "factor": "1"}, {"name": "Centimole", "abbreviation": "cmol", "factor": "1e-2"}, {"name": "CentipoundMole", "abbreviation": "clbmol", "factor": "453.59237e-2"}, {"name": "Decimole", "abbreviation": "dmol", "factor": "1e-1"}, {"name": "DecipoundMole", "abbreviation": "dlbmol", "factor": "453.59237e-1"}, {"name": "Kilomole", "abbreviation": "kmol", "factor": "1e3"}, {"name": "KilopoundMole", "abbreviation": "klbmol", "factor": "453.59237e3"}, {"name": "Megamole", "abbreviation": "Mmol", "factor": "1e6"}, {"name": "Micromole", "abbreviation": "\u00b5mol", "factor": "1e-6"}, {"name": "MicropoundMole", "abbreviation": "\u00b5lbmol", "factor": "453.59237e-6"}, {"name": "Millimole", "abbreviation": "mmol", "factor": "1e-3"}, {"name": "MillipoundMole", "abbreviation": "mlbmol", "factor": "453.59237e-3"}, {"name": "Nanomole", "abbreviation": "nmol", "factor": "1e-9"}, {"name": "NanopoundMole", "abbreviation": "nlbmol", "factor": "453.59237e-9"}, {"name": "PoundMole", "abbreviation": "lbmol", "factor": "453.59237"}]}
+{
+  "name": "AmountOfSubstance",
+  "baseunit": "Mole",
+  "units": [
+    {
+      "name": "Mole",
+      "abbreviation": "mol",
+      "factor": "1"
+    },
+    {
+      "name": "Centimole",
+      "abbreviation": "cmol",
+      "factor": "1e-2"
+    },
+    {
+      "name": "CentipoundMole",
+      "abbreviation": "clbmol",
+      "factor": "453.59237e-2"
+    },
+    {
+      "name": "Decimole",
+      "abbreviation": "dmol",
+      "factor": "1e-1"
+    },
+    {
+      "name": "DecipoundMole",
+      "abbreviation": "dlbmol",
+      "factor": "453.59237e-1"
+    },
+    {
+      "name": "Kilomole",
+      "abbreviation": "kmol",
+      "factor": "1e3"
+    },
+    {
+      "name": "KilopoundMole",
+      "abbreviation": "klbmol",
+      "factor": "453.59237e3"
+    },
+    {
+      "name": "Megamole",
+      "abbreviation": "Mmol",
+      "factor": "1e6"
+    },
+    {
+      "name": "Micromole",
+      "abbreviation": "\u00b5mol",
+      "factor": "1e-6"
+    },
+    {
+      "name": "MicropoundMole",
+      "abbreviation": "\u00b5lbmol",
+      "factor": "453.59237e-6"
+    },
+    {
+      "name": "Millimole",
+      "abbreviation": "mmol",
+      "factor": "1e-3"
+    },
+    {
+      "name": "MillipoundMole",
+      "abbreviation": "mlbmol",
+      "factor": "453.59237e-3"
+    },
+    {
+      "name": "Nanomole",
+      "abbreviation": "nmol",
+      "factor": "1e-9"
+    },
+    {
+      "name": "NanopoundMole",
+      "abbreviation": "nlbmol",
+      "factor": "453.59237e-9"
+    },
+    {
+      "name": "PoundMole",
+      "abbreviation": "lbmol",
+      "factor": "453.59237"
+    }
+  ],
+  "operators": {
+    "div": [],
+    "mul": []
+  }
+}

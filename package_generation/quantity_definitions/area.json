@@ -1,68 +1,5 @@
 {
-  "name": "Area",
   "baseunit": "SquareMeter",
-  "units": [
-    {
-      "name": "SquareKilometer",
-      "factor": "1e6",
-      "abbreviation": "km²"
-    },
-    {
-      "name": "Hectare",
-      "factor": "1e4",
-      "abbreviation": "ha"
-    },
-    {
-      "name": "SquareMeter",
-      "factor": "1",
-      "abbreviation": "m²"
-    },
-    {
-      "name": "SquareDecimeter",
-      "factor": "1e-2",
-      "abbreviation": "dm²"
-    },
-    {
-      "name": "SquareCentimeter",
-      "factor": "1e-4",
-      "abbreviation": "cm²"
-    },
-    {
-      "name": "SquareMillimeter",
-      "factor": "1e-6",
-      "abbreviation": "mm²"
-    },
-    {
-      "name": "SquareMicrometer",
-      "factor": "1e-12",
-      "abbreviation": "μm²"
-    },
-    {
-      "name": "SquareInch",
-      "factor": "6.4516e-4",
-      "abbreviation": "in²"
-    },
-    {
-      "name": "SquareFoot",
-      "factor": "9.2903e-2",
-      "abbreviation": "ft²"
-    },
-    {
-      "name": "SquareYard",
-      "factor": "8.36127e-1",
-      "abbreviation": "yd²"
-    },
-    {
-      "name": "SquareMile",
-      "factor": "2.59e6",
-      "abbreviation": "mi²"
-    },
-    {
-      "name": "Acre",
-      "factor": "4046.85642",
-      "abbreviation": "ac"
-    }
-  ],
   "operators": {
     "mul": [
       {
@@ -76,5 +13,68 @@
         "result": "Length"
       }
     ]
-  }
+  },
+  "name": "Area",
+  "units": [
+    {
+      "factor": "1e6",
+      "name": "SquareKilometer",
+      "abbreviation": "km\u00b2"
+    },
+    {
+      "factor": "1e4",
+      "name": "Hectare",
+      "abbreviation": "ha"
+    },
+    {
+      "factor": "1",
+      "name": "SquareMeter",
+      "abbreviation": "m\u00b2"
+    },
+    {
+      "factor": "1e-2",
+      "name": "SquareDecimeter",
+      "abbreviation": "dm\u00b2"
+    },
+    {
+      "factor": "1e-4",
+      "name": "SquareCentimeter",
+      "abbreviation": "cm\u00b2"
+    },
+    {
+      "factor": "1e-6",
+      "name": "SquareMillimeter",
+      "abbreviation": "mm\u00b2"
+    },
+    {
+      "factor": "1e-12",
+      "name": "SquareMicrometer",
+      "abbreviation": "\u03bcm\u00b2"
+    },
+    {
+      "factor": "6.4516e-4",
+      "name": "SquareInch",
+      "abbreviation": "in\u00b2"
+    },
+    {
+      "factor": "9.2903e-2",
+      "name": "SquareFoot",
+      "abbreviation": "ft\u00b2"
+    },
+    {
+      "factor": "8.36127e-1",
+      "name": "SquareYard",
+      "abbreviation": "yd\u00b2"
+    },
+    {
+      "factor": "2.59e6",
+      "name": "SquareMile",
+      "abbreviation": "mi\u00b2"
+    },
+    {
+      "factor": "4046.85642",
+      "name": "Acre",
+      "abbreviation": "ac"
+    }
+  ]
 }
