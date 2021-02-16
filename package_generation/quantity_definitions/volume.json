@@ -1,44 +1,44 @@
 {
+  "name": "Volume",
+  "units": [
+    {
+      "abbreviation": "m\u00b3",
+      "name": "CubicMeter",
+      "factor": "1"
+    },
+    {
+      "abbreviation": "l",
+      "name": "Liter",
+      "factor": "1e-3"
+    },
+    {
+      "abbreviation": "ml",
+      "name": "Milliliter",
+      "factor": "1e-6"
+    },
+    {
+      "abbreviation": "cl",
+      "name": "Centiliter",
+      "factor": "1e-5"
+    },
+    {
+      "abbreviation": "gal (U.S.)",
+      "name": "UsGallon",
+      "factor": "3.785411784e-3"
+    }
+  ],
   "baseunit": "CubicMeter",
   "operators": {
     "div": [
       {
-        "other": "Length",
-        "result": "Area"
+        "result": "Area",
+        "other": "Length"
       },
       {
-        "other": "Area",
-        "result": "Length"
+        "result": "Length",
+        "other": "Area"
       }
     ],
     "mul": []
-  },
-  "name": "Volume",
-  "units": [
-    {
-      "factor": "1",
-      "name": "CubicMeter",
-      "abbreviation": "m\u00b3"
-    },
-    {
-      "factor": "1e-3",
-      "name": "Liter",
-      "abbreviation": "l"
-    },
-    {
-      "factor": "1e-6",
-      "name": "Milliliter",
-      "abbreviation": "ml"
-    },
-    {
-      "factor": "1e-5",
-      "name": "Centiliter",
-      "abbreviation": "cl"
-    },
-    {
-      "factor": "3.785411784e-3",
-      "name": "UsGallon",
-      "abbreviation": "gal (U.S.)"
-    }
-  ]
+  }
 }

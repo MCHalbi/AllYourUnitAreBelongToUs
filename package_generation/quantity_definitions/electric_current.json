@@ -1,47 +1,47 @@
 {
-  "baseunit": "Ampere",
-  "operators": {},
   "name": "ElectricCurrent",
   "units": [
     {
-      "factor": "1e6",
+      "abbreviation": "MA",
       "name": "Megaampere",
-      "abbreviation": "MA"
+      "factor": "1e6"
     },
     {
-      "factor": "1e3",
+      "abbreviation": "kA",
       "name": "Kiloampere",
-      "abbreviation": "kA"
+      "factor": "1e3"
     },
     {
-      "factor": "1e0",
+      "abbreviation": "A",
       "name": "Ampere",
-      "abbreviation": "A"
+      "factor": "1e0"
     },
     {
-      "factor": "1e-2",
+      "abbreviation": "cA",
       "name": "Centiampere",
-      "abbreviation": "cA"
+      "factor": "1e-2"
     },
     {
-      "factor": "1e-3",
+      "abbreviation": "mA",
       "name": "Milliampere",
-      "abbreviation": "mA"
+      "factor": "1e-3"
     },
     {
-      "factor": "1e-6",
+      "abbreviation": "\u03bcA",
       "name": "Microampere",
-      "abbreviation": "\u03bcA"
+      "factor": "1e-6"
     },
     {
-      "factor": "1e-9",
+      "abbreviation": "nA",
       "name": "Nanoampere",
-      "abbreviation": "nA"
+      "factor": "1e-9"
     },
     {
-      "factor": "1e-12",
+      "abbreviation": "pA",
       "name": "Picoampere",
-      "abbreviation": "pA"
+      "factor": "1e-12"
     }
-  ]
+  ],
+  "baseunit": "Ampere",
+  "operators": {}
 }

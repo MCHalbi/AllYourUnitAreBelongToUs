@@ -47,15 +47,15 @@
       "factor": "1e-9"
     },
     {
+      "plural": "Inches",
       "abbreviation": "in",
       "name": "Inch",
-      "plural": "Inches",
       "factor": "0.0254"
     },
     {
+      "plural": "Feet",
       "abbreviation": "ft",
       "name": "Foot",
-      "plural": "Feet",
       "factor": "0.3048"
     },
     {
@@ -129,9 +129,9 @@
       "factor": "3.085677581e22"
     },
     {
+      "plural": "Microinches",
       "abbreviation": "\u03bcin",
       "name": "Microinch",
-      "plural": "Microinches",
       "factor": "2.54e-8"
     },
     {
@@ -150,9 +150,9 @@
       "factor": "27.432"
     },
     {
+      "plural": "SolarRadii",
       "abbreviation": "R\u2299",
       "name": "SolarRadius",
-      "plural": "SolarRadii",
       "factor": "6.96342e8"
     },
     {
@@ -161,9 +161,9 @@
       "factor": "1 / 56692.913385826"
     },
     {
+      "plural": "UsSurveyFeet",
       "abbreviation": "ft (U.S.)",
       "name": "UsSurveyFoot",
-      "plural": "UsSurveyFeet",
       "factor": "1200 / 3937"
     }
   ],
@@ -171,12 +171,12 @@
   "operators": {
     "mul": [
       {
-        "other": "Length",
-        "result": "Area"
+        "result": "Area",
+        "other": "Length"
       },
       {
-        "other": "Area",
-        "result": "Volume"
+        "result": "Volume",
+        "other": "Area"
       }
     ],
     "div": []

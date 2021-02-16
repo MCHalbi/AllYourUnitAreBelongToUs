@@ -1,18 +1,18 @@
 {
-  "baseunit": "Newton",
+  "name": "Force",
   "units": [
     {
-      "factor": "1",
+      "abbreviation": "N",
       "name": "Newton",
-      "abbreviation": "N"
+      "factor": "1"
     },
     {
-      "factor": "1e-5",
+      "abbreviation": "dyn",
       "name": "Dyn",
-      "abbreviation": "dyn"
+      "factor": "1e-5"
     }
   ],
-  "name": "Force",
+  "baseunit": "Newton",
   "operators": {
     "div": [],
     "mul": []

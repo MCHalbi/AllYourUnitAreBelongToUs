@@ -1,134 +1,134 @@
 {
   "name": "Mass",
-  "baseunit": "Kilogram",
   "units": [
     {
+      "abbreviation": "Gt",
       "name": "Gigatonne",
-      "factor": "1e12",
-      "abbreviation": "Gt"
+      "factor": "1e12"
     },
     {
+      "abbreviation": "Mt",
       "name": "Megatonne",
-      "factor": "1e9",
-      "abbreviation": "Mt"
+      "factor": "1e9"
     },
     {
+      "abbreviation": "kt",
       "name": "Kilotonne",
-      "factor": "1e6",
-      "abbreviation": "kt"
+      "factor": "1e6"
     },
     {
+      "abbreviation": "t",
       "name": "Tonne",
-      "factor": "1e3",
-      "abbreviation": "t"
+      "factor": "1e3"
     },
     {
+      "abbreviation": "kg",
       "name": "Kilogram",
-      "factor": "1e0",
-      "abbreviation": "kg"
+      "factor": "1e0"
     },
     {
+      "abbreviation": "hg",
       "name": "Hectogram",
-      "factor": "1e-1",
-      "abbreviation": "hg"
+      "factor": "1e-1"
     },
     {
+      "abbreviation": "dag",
       "name": "Decagram",
-      "factor": "1e-2",
-      "abbreviation": "dag"
+      "factor": "1e-2"
     },
     {
+      "abbreviation": "g",
       "name": "Gram",
-      "factor": "1e-3",
-      "abbreviation": "g"
+      "factor": "1e-3"
     },
     {
+      "abbreviation": "dg",
       "name": "Decigram",
-      "factor": "1e-4",
-      "abbreviation": "dg"
+      "factor": "1e-4"
     },
     {
+      "abbreviation": "cg",
       "name": "Centigram",
-      "factor": "1e-5",
-      "abbreviation": "cg"
+      "factor": "1e-5"
     },
     {
+      "abbreviation": "mg",
       "name": "Milligram",
-      "factor": "1e-6",
-      "abbreviation": "mg"
+      "factor": "1e-6"
     },
     {
+      "abbreviation": "\u03bcg",
       "name": "Microgram",
-      "factor": "1e-9",
-      "abbreviation": "μg"
+      "factor": "1e-9"
     },
     {
+      "abbreviation": "ng",
       "name": "Nanogram",
-      "factor": "1e-12",
-      "abbreviation": "ng"
+      "factor": "1e-12"
     },
     {
+      "abbreviation": "Mlb.",
       "name": "Megapound",
-      "factor": "4.53592370e5",
-      "abbreviation": "Mlb."
+      "factor": "4.53592370e5"
     },
     {
+      "abbreviation": "klb.",
       "name": "Kilopound",
-      "factor": "4.53592370e2",
-      "abbreviation": "klb."
+      "factor": "4.53592370e2"
     },
     {
+      "abbreviation": "lb.",
       "name": "Pound",
-      "factor": "4.53592370e-1",
-      "abbreviation": "lb."
+      "factor": "4.53592370e-1"
     },
     {
+      "abbreviation": "oz.",
       "name": "Ounce",
-      "factor": "2.8349523125e-2",
-      "abbreviation": "oz."
+      "factor": "2.8349523125e-2"
     },
     {
+      "abbreviation": "gr.",
       "name": "Grain",
-      "factor": "6.479891e-5",
-      "abbreviation": "gr."
+      "factor": "6.479891e-5"
     },
     {
+      "abbreviation": "cwt.",
       "name": "ShortHundredweight",
-      "factor": "45.359237",
-      "abbreviation": "cwt."
+      "factor": "45.359237"
     },
     {
+      "abbreviation": "to.",
       "name": "ShortTon",
-      "factor": "907.18474",
-      "abbreviation": "to."
+      "factor": "907.18474"
     },
     {
+      "abbreviation": "st.",
       "name": "Stone",
-      "factor": "6.35029318",
-      "abbreviation": "st."
+      "factor": "6.35029318"
     },
     {
+      "abbreviation": "cwt.",
       "name": "LongHundredweight",
-      "factor": "50.80234544",
-      "abbreviation": "cwt."
+      "factor": "50.80234544"
     },
     {
+      "abbreviation": "to.",
       "name": "LongTon",
-      "factor": "1016.0469088",
-      "abbreviation": "to."
+      "factor": "1016.0469088"
     },
     {
+      "plural": "EarthMasses",
+      "abbreviation": "M\u2295",
       "name": "EarthMass",
-      "factor": "5.9723e24",
-      "abbreviation": "M⊕",
-      "plural": "EarthMasses"
+      "factor": "5.9723e24"
     },
     {
+      "plural": "SolarMasses",
+      "abbreviation": "M\u2609",
       "name": "SolarMass",
-      "factor": "1.98892e30",
-      "abbreviation": "M☉",
-      "plural": "SolarMasses"
+      "factor": "1.98892e30"
     }
   ],
+  "baseunit": "Kilogram",
   "operators": {}
 }

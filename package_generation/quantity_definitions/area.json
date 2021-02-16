@@ -54,11 +54,13 @@
     {
       "factor": "6.4516e-4",
       "name": "SquareInch",
+      "plural": "SquareInches",
       "abbreviation": "in\u00b2"
     },
     {
       "factor": "9.2903e-2",
       "name": "SquareFoot",
+      "plural": "SquareFeet",
       "abbreviation": "ft\u00b2"
     },
     {

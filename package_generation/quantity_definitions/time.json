@@ -1,47 +1,47 @@
 {
   "name": "Time",
-  "baseunit": "Second",
   "units": [
     {
+      "abbreviation": "wk",
       "name": "Week",
-      "factor": "604800",
-      "abbreviation": "wk"
+      "factor": "604800"
     },
     {
+      "abbreviation": "day",
       "name": "Day",
-      "factor": "86400",
-      "abbreviation": "day"
+      "factor": "86400"
     },
     {
+      "abbreviation": "hr",
       "name": "Hour",
-      "factor": "3600",
-      "abbreviation": "hr"
+      "factor": "3600"
     },
     {
+      "abbreviation": "min",
       "name": "Minute",
-      "factor": "60",
-      "abbreviation": "min"
+      "factor": "60"
     },
     {
+      "abbreviation": "s",
       "name": "Second",
-      "factor": "1e0",
-      "abbreviation": "s"
+      "factor": "1e0"
     },
     {
+      "abbreviation": "ms",
       "name": "Millisecond",
-      "factor": "1e-3",
-      "abbreviation": "ms"
+      "factor": "1e-3"
     },
     {
+      "abbreviation": "\u03bcs",
       "name": "Microsecond",
-      "factor": "1e-6",
-      "abbreviation": "μs"
+      "factor": "1e-6"
     },
     {
+      "abbreviation": "ns",
       "name": "Nanosecond",
-      "factor": "1e-9",
-      "abbreviation": "ns"
+      "factor": "1e-9"
     }
   ],
+  "baseunit": "Second",
   "operators": {}
 }

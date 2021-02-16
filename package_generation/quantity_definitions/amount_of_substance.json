@@ -1,83 +1,83 @@
 {
   "name": "AmountOfSubstance",
-  "baseunit": "Mole",
   "units": [
     {
-      "name": "Mole",
       "abbreviation": "mol",
+      "name": "Mole",
       "factor": "1"
     },
     {
-      "name": "Centimole",
       "abbreviation": "cmol",
+      "name": "Centimole",
       "factor": "1e-2"
     },
     {
-      "name": "CentipoundMole",
       "abbreviation": "clbmol",
+      "name": "CentipoundMole",
       "factor": "453.59237e-2"
     },
     {
-      "name": "Decimole",
       "abbreviation": "dmol",
+      "name": "Decimole",
       "factor": "1e-1"
     },
     {
-      "name": "DecipoundMole",
       "abbreviation": "dlbmol",
+      "name": "DecipoundMole",
       "factor": "453.59237e-1"
     },
     {
-      "name": "Kilomole",
       "abbreviation": "kmol",
+      "name": "Kilomole",
       "factor": "1e3"
     },
     {
-      "name": "KilopoundMole",
       "abbreviation": "klbmol",
+      "name": "KilopoundMole",
       "factor": "453.59237e3"
     },
     {
-      "name": "Megamole",
       "abbreviation": "Mmol",
+      "name": "Megamole",
       "factor": "1e6"
     },
     {
-      "name": "Micromole",
       "abbreviation": "\u00b5mol",
+      "name": "Micromole",
       "factor": "1e-6"
     },
     {
-      "name": "MicropoundMole",
       "abbreviation": "\u00b5lbmol",
+      "name": "MicropoundMole",
       "factor": "453.59237e-6"
     },
     {
-      "name": "Millimole",
       "abbreviation": "mmol",
+      "name": "Millimole",
       "factor": "1e-3"
     },
     {
-      "name": "MillipoundMole",
       "abbreviation": "mlbmol",
+      "name": "MillipoundMole",
       "factor": "453.59237e-3"
     },
     {
-      "name": "Nanomole",
       "abbreviation": "nmol",
+      "name": "Nanomole",
       "factor": "1e-9"
     },
     {
-      "name": "NanopoundMole",
       "abbreviation": "nlbmol",
+      "name": "NanopoundMole",
       "factor": "453.59237e-9"
     },
     {
-      "name": "PoundMole",
       "abbreviation": "lbmol",
+      "name": "PoundMole",
       "factor": "453.59237"
     }
   ],
+  "baseunit": "Mole",
   "operators": {
     "div": [],
     "mul": []
