@@ -131,6 +131,7 @@
     {
       "abbreviation": "\u03bcin",
       "name": "Microinch",
+      "plural": "Microinches",
       "factor": "2.54e-8"
     },
     {
@@ -151,6 +152,7 @@
     {
       "abbreviation": "R\u2299",
       "name": "SolarRadius",
+      "plural": "SolarRadii",
       "factor": "6.96342e8"
     },
     {
@@ -161,6 +163,7 @@
     {
       "abbreviation": "ft (U.S.)",
       "name": "UsSurveyFoot",
+      "plural": "UsSurveyFeet",
       "factor": "1200 / 3937"
     }
   ],
