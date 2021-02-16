@@ -2,7 +2,7 @@
 This file was created automatically. Every change made in this file will be lost
 when the package is built the next time.
 To edit it, edit its template.
---!>
+--->
 # AllYourUnitAreBelongToUs
 ![version](https://img.shields.io/github/license/MCHalbi/AllYourUnitAreBelongToUs)
 ![version](https://img.shields.io/pypi/v/ayuabtu)
