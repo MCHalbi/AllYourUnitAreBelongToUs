@@ -7,11 +7,11 @@ from enum import Enum
 
 
 class TimeUnit(Enum):
-    WEEK = 1
-    DAY = 2
-    HOUR = 3
-    MINUTE = 4
-    SECOND = 5
-    MILLISECOND = 6
-    MICROSECOND = 7
-    NANOSECOND = 8
+    DAY = 1
+    HOUR = 2
+    MICROSECOND = 3
+    MILLISECOND = 4
+    MINUTE = 5
+    NANOSECOND = 6
+    SECOND = 7
+    WEEK = 8

@@ -77,6 +77,10 @@ class Generator:
         for filename in os.listdir(self._source_dir):
             self._load_source_file(filename)
 
+        self._quantities.sort(key=lambda quantity: quantity['name'])
+        for quantity in self._quantities:
+            quantity['units'].sort(key=lambda unit: unit['name'])
+
     def _load_source_file(self, filename):
         filepath = os.path.join(self._source_dir + filename)
         LOGGER.debug("Loading \"%s\".", filepath)

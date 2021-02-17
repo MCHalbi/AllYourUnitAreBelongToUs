@@ -9,72 +9,72 @@ from ..units import LengthUnit
 class Length:
     base_unit = LengthUnit.METER
     factors = {
-        LengthUnit.KILOMETER: 1e3,
-        LengthUnit.HECTOMETER: 1e2,
-        LengthUnit.DECAMETER: 1e1,
-        LengthUnit.METER: 1,
-        LengthUnit.DECIMETER: 1e-1,
-        LengthUnit.CENTIMETER: 1e-2,
-        LengthUnit.MILLIMETER: 1e-3,
-        LengthUnit.MICROMETER: 1e-6,
-        LengthUnit.NANOMETER: 1e-9,
-        LengthUnit.INCH: 0.0254,
-        LengthUnit.FOOT: 0.3048,
-        LengthUnit.YARD: 0.9144,
-        LengthUnit.MILE: 1609.34,
         LengthUnit.ASTRONOMICALUNIT: 1.4959787070e11,
+        LengthUnit.CENTIMETER: 1e-2,
         LengthUnit.CHAIN: 20.1168,
+        LengthUnit.DECAMETER: 1e1,
+        LengthUnit.DECIMETER: 1e-1,
         LengthUnit.DTPPICA: 1 / 236.220472441,
         LengthUnit.DTPPOINT: 2.54e-2 / 72,
         LengthUnit.FATHOM: 1.8288,
+        LengthUnit.FOOT: 0.3048,
         LengthUnit.HAND: 1.016e-1,
+        LengthUnit.HECTOMETER: 1e2,
+        LengthUnit.INCH: 0.0254,
         LengthUnit.KILOLIGHTYEAR: 9.4607304725808e18,
-        LengthUnit.LIGHTYEAR: 9.4607304725808e15,
+        LengthUnit.KILOMETER: 1e3,
         LengthUnit.KILOPARSEC: 3.085677581e19,
-        LengthUnit.PARSEC: 3.085677581e16,
+        LengthUnit.LIGHTYEAR: 9.4607304725808e15,
         LengthUnit.MEGALIGHTYEAR: 9.4607304725808e21,
         LengthUnit.MEGAPARSEC: 3.085677581e22,
+        LengthUnit.METER: 1,
         LengthUnit.MICROINCH: 2.54e-8,
+        LengthUnit.MICROMETER: 1e-6,
         LengthUnit.MIL: 2.54e-5,
+        LengthUnit.MILE: 1609.34,
+        LengthUnit.MILLIMETER: 1e-3,
+        LengthUnit.NANOMETER: 1e-9,
         LengthUnit.NAUTICALMILE: 1852,
+        LengthUnit.PARSEC: 3.085677581e16,
         LengthUnit.SHACKLE: 27.432,
         LengthUnit.SOLARRADIUS: 6.96342e8,
         LengthUnit.TWIP: 1 / 56692.913385826,
         LengthUnit.USSURVEYFOOT: 1200 / 3937,
+        LengthUnit.YARD: 0.9144,
     }
     abbreviations = {
-        LengthUnit.KILOMETER: 'km',
-        LengthUnit.HECTOMETER: 'hm',
-        LengthUnit.DECAMETER: 'dam',
-        LengthUnit.METER: 'm',
-        LengthUnit.DECIMETER: 'dm',
-        LengthUnit.CENTIMETER: 'cm',
-        LengthUnit.MILLIMETER: 'mm',
-        LengthUnit.MICROMETER: 'μm',
-        LengthUnit.NANOMETER: 'nm',
-        LengthUnit.INCH: 'in',
-        LengthUnit.FOOT: 'ft',
-        LengthUnit.YARD: 'yd',
-        LengthUnit.MILE: 'mi',
         LengthUnit.ASTRONOMICALUNIT: 'au',
+        LengthUnit.CENTIMETER: 'cm',
         LengthUnit.CHAIN: 'ch',
+        LengthUnit.DECAMETER: 'dam',
+        LengthUnit.DECIMETER: 'dm',
         LengthUnit.DTPPICA: 'pica',
         LengthUnit.DTPPOINT: 'pt',
         LengthUnit.FATHOM: 'fathom',
+        LengthUnit.FOOT: 'ft',
         LengthUnit.HAND: 'h',
+        LengthUnit.HECTOMETER: 'hm',
+        LengthUnit.INCH: 'in',
         LengthUnit.KILOLIGHTYEAR: 'kly',
-        LengthUnit.LIGHTYEAR: 'ly',
+        LengthUnit.KILOMETER: 'km',
         LengthUnit.KILOPARSEC: 'kpc',
-        LengthUnit.PARSEC: 'pc',
+        LengthUnit.LIGHTYEAR: 'ly',
         LengthUnit.MEGALIGHTYEAR: 'Mly',
         LengthUnit.MEGAPARSEC: 'Mpc',
+        LengthUnit.METER: 'm',
         LengthUnit.MICROINCH: 'μin',
+        LengthUnit.MICROMETER: 'μm',
         LengthUnit.MIL: 'mil',
+        LengthUnit.MILE: 'mi',
+        LengthUnit.MILLIMETER: 'mm',
+        LengthUnit.NANOMETER: 'nm',
         LengthUnit.NAUTICALMILE: 'NM',
+        LengthUnit.PARSEC: 'pc',
         LengthUnit.SHACKLE: 'shackle',
         LengthUnit.SOLARRADIUS: 'R⊙',
         LengthUnit.TWIP: 'twip',
         LengthUnit.USSURVEYFOOT: 'ft (U.S.)',
+        LengthUnit.YARD: 'yd',
     }
 
     def __init__(self, value: float, unit: 'LengthUnit') -> None:
@@ -111,8 +111,8 @@ class Length:
         self._raise_type_error_for_undefined_operator(other, '-')
 
     def __mul__(self, other):
-        from .area import Area
         from .volume import Volume
+        from .area import Area
 
         if type(other) in (float, int):
             result = Length(self._value * other, self._unit)
@@ -130,8 +130,8 @@ class Length:
         return result
 
     def __rmul__(self, other):
-        from .area import Area
         from .volume import Volume
+        from .area import Area
 
         if type(other) in (float, int, Length, Area):
             return self * other
@@ -191,64 +191,24 @@ class Length:
 
     # Generation shorthands
     @staticmethod
-    def from_kilometers(value: float) -> 'Length':
-        return Length(value, LengthUnit.KILOMETER)
-
-    @staticmethod
-    def from_hectometers(value: float) -> 'Length':
-        return Length(value, LengthUnit.HECTOMETER)
-
-    @staticmethod
-    def from_decameters(value: float) -> 'Length':
-        return Length(value, LengthUnit.DECAMETER)
-
-    @staticmethod
-    def from_meters(value: float) -> 'Length':
-        return Length(value, LengthUnit.METER)
-
-    @staticmethod
-    def from_decimeters(value: float) -> 'Length':
-        return Length(value, LengthUnit.DECIMETER)
+    def from_astronomical_units(value: float) -> 'Length':
+        return Length(value, LengthUnit.ASTRONOMICALUNIT)
 
     @staticmethod
     def from_centimeters(value: float) -> 'Length':
         return Length(value, LengthUnit.CENTIMETER)
 
     @staticmethod
-    def from_millimeters(value: float) -> 'Length':
-        return Length(value, LengthUnit.MILLIMETER)
-
-    @staticmethod
-    def from_micrometers(value: float) -> 'Length':
-        return Length(value, LengthUnit.MICROMETER)
-
-    @staticmethod
-    def from_nanometers(value: float) -> 'Length':
-        return Length(value, LengthUnit.NANOMETER)
-
-    @staticmethod
-    def from_inches(value: float) -> 'Length':
-        return Length(value, LengthUnit.INCH)
-
-    @staticmethod
-    def from_feet(value: float) -> 'Length':
-        return Length(value, LengthUnit.FOOT)
-
-    @staticmethod
-    def from_yards(value: float) -> 'Length':
-        return Length(value, LengthUnit.YARD)
-
-    @staticmethod
-    def from_miles(value: float) -> 'Length':
-        return Length(value, LengthUnit.MILE)
-
-    @staticmethod
-    def from_astronomical_units(value: float) -> 'Length':
-        return Length(value, LengthUnit.ASTRONOMICALUNIT)
-
-    @staticmethod
     def from_chains(value: float) -> 'Length':
         return Length(value, LengthUnit.CHAIN)
+
+    @staticmethod
+    def from_decameters(value: float) -> 'Length':
+        return Length(value, LengthUnit.DECAMETER)
+
+    @staticmethod
+    def from_decimeters(value: float) -> 'Length':
+        return Length(value, LengthUnit.DECIMETER)
 
     @staticmethod
     def from_dtp_picas(value: float) -> 'Length':
@@ -263,24 +223,36 @@ class Length:
         return Length(value, LengthUnit.FATHOM)
 
     @staticmethod
+    def from_feet(value: float) -> 'Length':
+        return Length(value, LengthUnit.FOOT)
+
+    @staticmethod
     def from_hands(value: float) -> 'Length':
         return Length(value, LengthUnit.HAND)
+
+    @staticmethod
+    def from_hectometers(value: float) -> 'Length':
+        return Length(value, LengthUnit.HECTOMETER)
+
+    @staticmethod
+    def from_inches(value: float) -> 'Length':
+        return Length(value, LengthUnit.INCH)
 
     @staticmethod
     def from_kilolight_years(value: float) -> 'Length':
         return Length(value, LengthUnit.KILOLIGHTYEAR)
 
     @staticmethod
-    def from_light_years(value: float) -> 'Length':
-        return Length(value, LengthUnit.LIGHTYEAR)
+    def from_kilometers(value: float) -> 'Length':
+        return Length(value, LengthUnit.KILOMETER)
 
     @staticmethod
     def from_kiloparsecs(value: float) -> 'Length':
         return Length(value, LengthUnit.KILOPARSEC)
 
     @staticmethod
-    def from_parsecs(value: float) -> 'Length':
-        return Length(value, LengthUnit.PARSEC)
+    def from_light_years(value: float) -> 'Length':
+        return Length(value, LengthUnit.LIGHTYEAR)
 
     @staticmethod
     def from_megalight_years(value: float) -> 'Length':
@@ -291,16 +263,40 @@ class Length:
         return Length(value, LengthUnit.MEGAPARSEC)
 
     @staticmethod
+    def from_meters(value: float) -> 'Length':
+        return Length(value, LengthUnit.METER)
+
+    @staticmethod
     def from_microinches(value: float) -> 'Length':
         return Length(value, LengthUnit.MICROINCH)
+
+    @staticmethod
+    def from_micrometers(value: float) -> 'Length':
+        return Length(value, LengthUnit.MICROMETER)
 
     @staticmethod
     def from_mils(value: float) -> 'Length':
         return Length(value, LengthUnit.MIL)
 
     @staticmethod
+    def from_miles(value: float) -> 'Length':
+        return Length(value, LengthUnit.MILE)
+
+    @staticmethod
+    def from_millimeters(value: float) -> 'Length':
+        return Length(value, LengthUnit.MILLIMETER)
+
+    @staticmethod
+    def from_nanometers(value: float) -> 'Length':
+        return Length(value, LengthUnit.NANOMETER)
+
+    @staticmethod
     def from_nautical_miles(value: float) -> 'Length':
         return Length(value, LengthUnit.NAUTICALMILE)
+
+    @staticmethod
+    def from_parsecs(value: float) -> 'Length':
+        return Length(value, LengthUnit.PARSEC)
 
     @staticmethod
     def from_shackles(value: float) -> 'Length':
@@ -318,66 +314,30 @@ class Length:
     def from_us_survey_feet(value: float) -> 'Length':
         return Length(value, LengthUnit.USSURVEYFOOT)
 
+    @staticmethod
+    def from_yards(value: float) -> 'Length':
+        return Length(value, LengthUnit.YARD)
+
     # Conversion shorthands
     @property
-    def kilometers(self) -> float:
-        return self.as_unit(LengthUnit.KILOMETER)
-
-    @property
-    def hectometers(self) -> float:
-        return self.as_unit(LengthUnit.HECTOMETER)
-
-    @property
-    def decameters(self) -> float:
-        return self.as_unit(LengthUnit.DECAMETER)
-
-    @property
-    def meters(self) -> float:
-        return self.as_unit(LengthUnit.METER)
-
-    @property
-    def decimeters(self) -> float:
-        return self.as_unit(LengthUnit.DECIMETER)
+    def astronomical_units(self) -> float:
+        return self.as_unit(LengthUnit.ASTRONOMICALUNIT)
 
     @property
     def centimeters(self) -> float:
         return self.as_unit(LengthUnit.CENTIMETER)
 
     @property
-    def millimeters(self) -> float:
-        return self.as_unit(LengthUnit.MILLIMETER)
-
-    @property
-    def micrometers(self) -> float:
-        return self.as_unit(LengthUnit.MICROMETER)
-
-    @property
-    def nanometers(self) -> float:
-        return self.as_unit(LengthUnit.NANOMETER)
-
-    @property
-    def inches(self) -> float:
-        return self.as_unit(LengthUnit.INCH)
-
-    @property
-    def feet(self) -> float:
-        return self.as_unit(LengthUnit.FOOT)
-
-    @property
-    def yards(self) -> float:
-        return self.as_unit(LengthUnit.YARD)
-
-    @property
-    def miles(self) -> float:
-        return self.as_unit(LengthUnit.MILE)
-
-    @property
-    def astronomical_units(self) -> float:
-        return self.as_unit(LengthUnit.ASTRONOMICALUNIT)
-
-    @property
     def chains(self) -> float:
         return self.as_unit(LengthUnit.CHAIN)
+
+    @property
+    def decameters(self) -> float:
+        return self.as_unit(LengthUnit.DECAMETER)
+
+    @property
+    def decimeters(self) -> float:
+        return self.as_unit(LengthUnit.DECIMETER)
 
     @property
     def dtp_picas(self) -> float:
@@ -392,24 +352,36 @@ class Length:
         return self.as_unit(LengthUnit.FATHOM)
 
     @property
+    def feet(self) -> float:
+        return self.as_unit(LengthUnit.FOOT)
+
+    @property
     def hands(self) -> float:
         return self.as_unit(LengthUnit.HAND)
+
+    @property
+    def hectometers(self) -> float:
+        return self.as_unit(LengthUnit.HECTOMETER)
+
+    @property
+    def inches(self) -> float:
+        return self.as_unit(LengthUnit.INCH)
 
     @property
     def kilolight_years(self) -> float:
         return self.as_unit(LengthUnit.KILOLIGHTYEAR)
 
     @property
-    def light_years(self) -> float:
-        return self.as_unit(LengthUnit.LIGHTYEAR)
+    def kilometers(self) -> float:
+        return self.as_unit(LengthUnit.KILOMETER)
 
     @property
     def kiloparsecs(self) -> float:
         return self.as_unit(LengthUnit.KILOPARSEC)
 
     @property
-    def parsecs(self) -> float:
-        return self.as_unit(LengthUnit.PARSEC)
+    def light_years(self) -> float:
+        return self.as_unit(LengthUnit.LIGHTYEAR)
 
     @property
     def megalight_years(self) -> float:
@@ -420,16 +392,40 @@ class Length:
         return self.as_unit(LengthUnit.MEGAPARSEC)
 
     @property
+    def meters(self) -> float:
+        return self.as_unit(LengthUnit.METER)
+
+    @property
     def microinches(self) -> float:
         return self.as_unit(LengthUnit.MICROINCH)
+
+    @property
+    def micrometers(self) -> float:
+        return self.as_unit(LengthUnit.MICROMETER)
 
     @property
     def mils(self) -> float:
         return self.as_unit(LengthUnit.MIL)
 
     @property
+    def miles(self) -> float:
+        return self.as_unit(LengthUnit.MILE)
+
+    @property
+    def millimeters(self) -> float:
+        return self.as_unit(LengthUnit.MILLIMETER)
+
+    @property
+    def nanometers(self) -> float:
+        return self.as_unit(LengthUnit.NANOMETER)
+
+    @property
     def nautical_miles(self) -> float:
         return self.as_unit(LengthUnit.NAUTICALMILE)
+
+    @property
+    def parsecs(self) -> float:
+        return self.as_unit(LengthUnit.PARSEC)
 
     @property
     def shackles(self) -> float:
@@ -446,6 +442,10 @@ class Length:
     @property
     def us_survey_feet(self) -> float:
         return self.as_unit(LengthUnit.USSURVEYFOOT)
+
+    @property
+    def yards(self) -> float:
+        return self.as_unit(LengthUnit.YARD)
 
     def _to_base_unit(self) -> 'Length':
         return self.to_unit(self.base_unit)

@@ -7,8 +7,8 @@ from enum import Enum
 
 
 class VolumeUnit(Enum):
-    CUBICMETER = 1
-    LITER = 2
-    MILLILITER = 3
-    CENTILITER = 4
+    CENTILITER = 1
+    CUBICMETER = 2
+    LITER = 3
+    MILLILITER = 4
     USGALLON = 5

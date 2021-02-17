@@ -9,34 +9,34 @@ from ..units import TemperatureUnit
 class Temperature:
     base_unit = TemperatureUnit.KELVIN
     factors = {
-        TemperatureUnit.KELVIN: 1,
-        TemperatureUnit.DEGREEFAHRENHEIT: 5 / 9,
         TemperatureUnit.DEGREECELSIUS: 1,
-        TemperatureUnit.DEGREERANKINE: 5 / 9,
         TemperatureUnit.DEGREEDELISLE: - 2 / 3,
+        TemperatureUnit.DEGREEFAHRENHEIT: 5 / 9,
         TemperatureUnit.DEGREENEWTON: 100/33,
+        TemperatureUnit.DEGREERANKINE: 5 / 9,
         TemperatureUnit.DEGREEREAUMUR: 1.25,
         TemperatureUnit.DEGREEROEMER: 40 / 21,
+        TemperatureUnit.KELVIN: 1,
     }
     offsets = {
-        TemperatureUnit.KELVIN: 0,
-        TemperatureUnit.DEGREEFAHRENHEIT: 2298.35 / 9,
-        TemperatureUnit.DEGREECELSIUS: 237.15,
-        TemperatureUnit.DEGREERANKINE: 0,
+        TemperatureUnit.DEGREECELSIUS: 273.15,
         TemperatureUnit.DEGREEDELISLE: 375.15,
+        TemperatureUnit.DEGREEFAHRENHEIT: 2298.35 / 9,
         TemperatureUnit.DEGREENEWTON: 273.15,
+        TemperatureUnit.DEGREERANKINE: 0,
         TemperatureUnit.DEGREEREAUMUR: 273.15,
         TemperatureUnit.DEGREEROEMER: 5448.15 / 21,
+        TemperatureUnit.KELVIN: 0,
     }
     abbreviations = {
-        TemperatureUnit.KELVIN: 'K',
-        TemperatureUnit.DEGREEFAHRENHEIT: '°F',
         TemperatureUnit.DEGREECELSIUS: '°C',
-        TemperatureUnit.DEGREERANKINE: '°Ra',
         TemperatureUnit.DEGREEDELISLE: '°De',
+        TemperatureUnit.DEGREEFAHRENHEIT: '°F',
         TemperatureUnit.DEGREENEWTON: '°N',
+        TemperatureUnit.DEGREERANKINE: '°Ra',
         TemperatureUnit.DEGREEREAUMUR: '°Ré',
         TemperatureUnit.DEGREEROEMER: '°Rø',
+        TemperatureUnit.KELVIN: 'K',
     }
 
     def __init__(self, value: float, unit: 'TemperatureUnit') -> None:
@@ -141,28 +141,24 @@ class Temperature:
 
     # Generation shorthands
     @staticmethod
-    def from_kelvin(value: float) -> 'Temperature':
-        return Temperature(value, TemperatureUnit.KELVIN)
-
-    @staticmethod
-    def from_degrees_fahrenheit(value: float) -> 'Temperature':
-        return Temperature(value, TemperatureUnit.DEGREEFAHRENHEIT)
-
-    @staticmethod
     def from_degrees_celsius(value: float) -> 'Temperature':
         return Temperature(value, TemperatureUnit.DEGREECELSIUS)
-
-    @staticmethod
-    def from_degrees_rankine(value: float) -> 'Temperature':
-        return Temperature(value, TemperatureUnit.DEGREERANKINE)
 
     @staticmethod
     def from_degrees_delisle(value: float) -> 'Temperature':
         return Temperature(value, TemperatureUnit.DEGREEDELISLE)
 
     @staticmethod
+    def from_degrees_fahrenheit(value: float) -> 'Temperature':
+        return Temperature(value, TemperatureUnit.DEGREEFAHRENHEIT)
+
+    @staticmethod
     def from_degrees_newton(value: float) -> 'Temperature':
         return Temperature(value, TemperatureUnit.DEGREENEWTON)
+
+    @staticmethod
+    def from_degrees_rankine(value: float) -> 'Temperature':
+        return Temperature(value, TemperatureUnit.DEGREERANKINE)
 
     @staticmethod
     def from_degrees_reaumur(value: float) -> 'Temperature':
@@ -172,30 +168,30 @@ class Temperature:
     def from_degrees_roemer(value: float) -> 'Temperature':
         return Temperature(value, TemperatureUnit.DEGREEROEMER)
 
+    @staticmethod
+    def from_kelvin(value: float) -> 'Temperature':
+        return Temperature(value, TemperatureUnit.KELVIN)
+
     # Conversion shorthands
-    @property
-    def kelvin(self) -> float:
-        return self.as_unit(TemperatureUnit.KELVIN)
-
-    @property
-    def degrees_fahrenheit(self) -> float:
-        return self.as_unit(TemperatureUnit.DEGREEFAHRENHEIT)
-
     @property
     def degrees_celsius(self) -> float:
         return self.as_unit(TemperatureUnit.DEGREECELSIUS)
-
-    @property
-    def degrees_rankine(self) -> float:
-        return self.as_unit(TemperatureUnit.DEGREERANKINE)
 
     @property
     def degrees_delisle(self) -> float:
         return self.as_unit(TemperatureUnit.DEGREEDELISLE)
 
     @property
+    def degrees_fahrenheit(self) -> float:
+        return self.as_unit(TemperatureUnit.DEGREEFAHRENHEIT)
+
+    @property
     def degrees_newton(self) -> float:
         return self.as_unit(TemperatureUnit.DEGREENEWTON)
+
+    @property
+    def degrees_rankine(self) -> float:
+        return self.as_unit(TemperatureUnit.DEGREERANKINE)
 
     @property
     def degrees_reaumur(self) -> float:
@@ -204,6 +200,10 @@ class Temperature:
     @property
     def degrees_roemer(self) -> float:
         return self.as_unit(TemperatureUnit.DEGREEROEMER)
+
+    @property
+    def kelvin(self) -> float:
+        return self.as_unit(TemperatureUnit.KELVIN)
 
     def _to_base_unit(self) -> 'Temperature':
         return self.to_unit(self.base_unit)
@@ -219,7 +219,8 @@ class Temperature:
         base_unit_value = self._get_value_in_base_unit()
 
         try:
-            return base_unit_value / Temperature.factors[unit]
+            return ((base_unit_value - Temperature.offsets[unit])
+                    / Temperature.factors[unit])
         except KeyError:
             raise NotImplementedError(
                 'Can not convert {0} to {1}.'.format(self._unit.name, unit))

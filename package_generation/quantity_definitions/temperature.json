@@ -22,7 +22,7 @@
     {
       "factor": "1",
       "abbreviation": "\u00b0C",
-      "offset": "237.15",
+      "offset": "273.15",
       "name": "DegreeCelsius",
       "plural": "DegreesCelsius"
     },

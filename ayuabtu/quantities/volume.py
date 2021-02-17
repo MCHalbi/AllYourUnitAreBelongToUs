@@ -9,17 +9,17 @@ from ..units import VolumeUnit
 class Volume:
     base_unit = VolumeUnit.CUBICMETER
     factors = {
+        VolumeUnit.CENTILITER: 1e-5,
         VolumeUnit.CUBICMETER: 1,
         VolumeUnit.LITER: 1e-3,
         VolumeUnit.MILLILITER: 1e-6,
-        VolumeUnit.CENTILITER: 1e-5,
         VolumeUnit.USGALLON: 3.785411784e-3,
     }
     abbreviations = {
+        VolumeUnit.CENTILITER: 'cl',
         VolumeUnit.CUBICMETER: 'm³',
         VolumeUnit.LITER: 'l',
         VolumeUnit.MILLILITER: 'ml',
-        VolumeUnit.CENTILITER: 'cl',
         VolumeUnit.USGALLON: 'gal (U.S.)',
     }
 
@@ -73,8 +73,8 @@ class Volume:
         self._raise_type_error_for_undefined_operator(other, '*')
 
     def __truediv__(self, other):
-        from .area import Area
         from .length import Length
+        from .area import Area
 
         if type(other) is Volume:
             result = (self._get_value_in_base_unit()
@@ -135,6 +135,10 @@ class Volume:
 
     # Generation shorthands
     @staticmethod
+    def from_centiliters(value: float) -> 'Volume':
+        return Volume(value, VolumeUnit.CENTILITER)
+
+    @staticmethod
     def from_cubic_meters(value: float) -> 'Volume':
         return Volume(value, VolumeUnit.CUBICMETER)
 
@@ -147,14 +151,14 @@ class Volume:
         return Volume(value, VolumeUnit.MILLILITER)
 
     @staticmethod
-    def from_centiliters(value: float) -> 'Volume':
-        return Volume(value, VolumeUnit.CENTILITER)
-
-    @staticmethod
     def from_us_gallons(value: float) -> 'Volume':
         return Volume(value, VolumeUnit.USGALLON)
 
     # Conversion shorthands
+    @property
+    def centiliters(self) -> float:
+        return self.as_unit(VolumeUnit.CENTILITER)
+
     @property
     def cubic_meters(self) -> float:
         return self.as_unit(VolumeUnit.CUBICMETER)
@@ -166,10 +170,6 @@ class Volume:
     @property
     def milliliters(self) -> float:
         return self.as_unit(VolumeUnit.MILLILITER)
-
-    @property
-    def centiliters(self) -> float:
-        return self.as_unit(VolumeUnit.CENTILITER)
 
     @property
     def us_gallons(self) -> float:

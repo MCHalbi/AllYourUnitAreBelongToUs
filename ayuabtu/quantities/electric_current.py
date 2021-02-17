@@ -9,22 +9,22 @@ from ..units import ElectricCurrentUnit
 class ElectricCurrent:
     base_unit = ElectricCurrentUnit.AMPERE
     factors = {
-        ElectricCurrentUnit.MEGAAMPERE: 1e6,
-        ElectricCurrentUnit.KILOAMPERE: 1e3,
         ElectricCurrentUnit.AMPERE: 1e0,
         ElectricCurrentUnit.CENTIAMPERE: 1e-2,
-        ElectricCurrentUnit.MILLIAMPERE: 1e-3,
+        ElectricCurrentUnit.KILOAMPERE: 1e3,
+        ElectricCurrentUnit.MEGAAMPERE: 1e6,
         ElectricCurrentUnit.MICROAMPERE: 1e-6,
+        ElectricCurrentUnit.MILLIAMPERE: 1e-3,
         ElectricCurrentUnit.NANOAMPERE: 1e-9,
         ElectricCurrentUnit.PICOAMPERE: 1e-12,
     }
     abbreviations = {
-        ElectricCurrentUnit.MEGAAMPERE: 'MA',
-        ElectricCurrentUnit.KILOAMPERE: 'kA',
         ElectricCurrentUnit.AMPERE: 'A',
         ElectricCurrentUnit.CENTIAMPERE: 'cA',
-        ElectricCurrentUnit.MILLIAMPERE: 'mA',
+        ElectricCurrentUnit.KILOAMPERE: 'kA',
+        ElectricCurrentUnit.MEGAAMPERE: 'MA',
         ElectricCurrentUnit.MICROAMPERE: 'μA',
+        ElectricCurrentUnit.MILLIAMPERE: 'mA',
         ElectricCurrentUnit.NANOAMPERE: 'nA',
         ElectricCurrentUnit.PICOAMPERE: 'pA',
     }
@@ -131,14 +131,6 @@ class ElectricCurrent:
 
     # Generation shorthands
     @staticmethod
-    def from_megaamperes(value: float) -> 'ElectricCurrent':
-        return ElectricCurrent(value, ElectricCurrentUnit.MEGAAMPERE)
-
-    @staticmethod
-    def from_kiloamperes(value: float) -> 'ElectricCurrent':
-        return ElectricCurrent(value, ElectricCurrentUnit.KILOAMPERE)
-
-    @staticmethod
     def from_amperes(value: float) -> 'ElectricCurrent':
         return ElectricCurrent(value, ElectricCurrentUnit.AMPERE)
 
@@ -147,12 +139,20 @@ class ElectricCurrent:
         return ElectricCurrent(value, ElectricCurrentUnit.CENTIAMPERE)
 
     @staticmethod
-    def from_milliamperes(value: float) -> 'ElectricCurrent':
-        return ElectricCurrent(value, ElectricCurrentUnit.MILLIAMPERE)
+    def from_kiloamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.KILOAMPERE)
+
+    @staticmethod
+    def from_megaamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.MEGAAMPERE)
 
     @staticmethod
     def from_microamperes(value: float) -> 'ElectricCurrent':
         return ElectricCurrent(value, ElectricCurrentUnit.MICROAMPERE)
+
+    @staticmethod
+    def from_milliamperes(value: float) -> 'ElectricCurrent':
+        return ElectricCurrent(value, ElectricCurrentUnit.MILLIAMPERE)
 
     @staticmethod
     def from_nanoamperes(value: float) -> 'ElectricCurrent':
@@ -164,14 +164,6 @@ class ElectricCurrent:
 
     # Conversion shorthands
     @property
-    def megaamperes(self) -> float:
-        return self.as_unit(ElectricCurrentUnit.MEGAAMPERE)
-
-    @property
-    def kiloamperes(self) -> float:
-        return self.as_unit(ElectricCurrentUnit.KILOAMPERE)
-
-    @property
     def amperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.AMPERE)
 
@@ -180,12 +172,20 @@ class ElectricCurrent:
         return self.as_unit(ElectricCurrentUnit.CENTIAMPERE)
 
     @property
-    def milliamperes(self) -> float:
-        return self.as_unit(ElectricCurrentUnit.MILLIAMPERE)
+    def kiloamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.KILOAMPERE)
+
+    @property
+    def megaamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.MEGAAMPERE)
 
     @property
     def microamperes(self) -> float:
         return self.as_unit(ElectricCurrentUnit.MICROAMPERE)
+
+    @property
+    def milliamperes(self) -> float:
+        return self.as_unit(ElectricCurrentUnit.MILLIAMPERE)
 
     @property
     def nanoamperes(self) -> float:

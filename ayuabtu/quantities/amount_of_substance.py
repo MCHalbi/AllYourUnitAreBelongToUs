@@ -9,7 +9,6 @@ from ..units import AmountOfSubstanceUnit
 class AmountOfSubstance:
     base_unit = AmountOfSubstanceUnit.MOLE
     factors = {
-        AmountOfSubstanceUnit.MOLE: 1,
         AmountOfSubstanceUnit.CENTIMOLE: 1e-2,
         AmountOfSubstanceUnit.CENTIPOUNDMOLE: 453.59237e-2,
         AmountOfSubstanceUnit.DECIMOLE: 1e-1,
@@ -21,12 +20,12 @@ class AmountOfSubstance:
         AmountOfSubstanceUnit.MICROPOUNDMOLE: 453.59237e-6,
         AmountOfSubstanceUnit.MILLIMOLE: 1e-3,
         AmountOfSubstanceUnit.MILLIPOUNDMOLE: 453.59237e-3,
+        AmountOfSubstanceUnit.MOLE: 1,
         AmountOfSubstanceUnit.NANOMOLE: 1e-9,
         AmountOfSubstanceUnit.NANOPOUNDMOLE: 453.59237e-9,
         AmountOfSubstanceUnit.POUNDMOLE: 453.59237,
     }
     abbreviations = {
-        AmountOfSubstanceUnit.MOLE: 'mol',
         AmountOfSubstanceUnit.CENTIMOLE: 'cmol',
         AmountOfSubstanceUnit.CENTIPOUNDMOLE: 'clbmol',
         AmountOfSubstanceUnit.DECIMOLE: 'dmol',
@@ -38,6 +37,7 @@ class AmountOfSubstance:
         AmountOfSubstanceUnit.MICROPOUNDMOLE: 'µlbmol',
         AmountOfSubstanceUnit.MILLIMOLE: 'mmol',
         AmountOfSubstanceUnit.MILLIPOUNDMOLE: 'mlbmol',
+        AmountOfSubstanceUnit.MOLE: 'mol',
         AmountOfSubstanceUnit.NANOMOLE: 'nmol',
         AmountOfSubstanceUnit.NANOPOUNDMOLE: 'nlbmol',
         AmountOfSubstanceUnit.POUNDMOLE: 'lbmol',
@@ -145,10 +145,6 @@ class AmountOfSubstance:
 
     # Generation shorthands
     @staticmethod
-    def from_moles(value: float) -> 'AmountOfSubstance':
-        return AmountOfSubstance(value, AmountOfSubstanceUnit.MOLE)
-
-    @staticmethod
     def from_centimoles(value: float) -> 'AmountOfSubstance':
         return AmountOfSubstance(value, AmountOfSubstanceUnit.CENTIMOLE)
 
@@ -193,6 +189,10 @@ class AmountOfSubstance:
         return AmountOfSubstance(value, AmountOfSubstanceUnit.MILLIPOUNDMOLE)
 
     @staticmethod
+    def from_moles(value: float) -> 'AmountOfSubstance':
+        return AmountOfSubstance(value, AmountOfSubstanceUnit.MOLE)
+
+    @staticmethod
     def from_nanomoles(value: float) -> 'AmountOfSubstance':
         return AmountOfSubstance(value, AmountOfSubstanceUnit.NANOMOLE)
 
@@ -205,10 +205,6 @@ class AmountOfSubstance:
         return AmountOfSubstance(value, AmountOfSubstanceUnit.POUNDMOLE)
 
     # Conversion shorthands
-    @property
-    def moles(self) -> float:
-        return self.as_unit(AmountOfSubstanceUnit.MOLE)
-
     @property
     def centimoles(self) -> float:
         return self.as_unit(AmountOfSubstanceUnit.CENTIMOLE)
@@ -252,6 +248,10 @@ class AmountOfSubstance:
     @property
     def millipound_moles(self) -> float:
         return self.as_unit(AmountOfSubstanceUnit.MILLIPOUNDMOLE)
+
+    @property
+    def moles(self) -> float:
+        return self.as_unit(AmountOfSubstanceUnit.MOLE)
 
     @property
     def nanomoles(self) -> float:

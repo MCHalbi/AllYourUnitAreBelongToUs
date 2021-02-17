@@ -9,24 +9,24 @@ from ..units import TimeUnit
 class Time:
     base_unit = TimeUnit.SECOND
     factors = {
-        TimeUnit.WEEK: 604800,
         TimeUnit.DAY: 86400,
         TimeUnit.HOUR: 3600,
-        TimeUnit.MINUTE: 60,
-        TimeUnit.SECOND: 1e0,
-        TimeUnit.MILLISECOND: 1e-3,
         TimeUnit.MICROSECOND: 1e-6,
+        TimeUnit.MILLISECOND: 1e-3,
+        TimeUnit.MINUTE: 60,
         TimeUnit.NANOSECOND: 1e-9,
+        TimeUnit.SECOND: 1e0,
+        TimeUnit.WEEK: 604800,
     }
     abbreviations = {
-        TimeUnit.WEEK: 'wk',
         TimeUnit.DAY: 'day',
         TimeUnit.HOUR: 'hr',
-        TimeUnit.MINUTE: 'min',
-        TimeUnit.SECOND: 's',
-        TimeUnit.MILLISECOND: 'ms',
         TimeUnit.MICROSECOND: 'μs',
+        TimeUnit.MILLISECOND: 'ms',
+        TimeUnit.MINUTE: 'min',
         TimeUnit.NANOSECOND: 'ns',
+        TimeUnit.SECOND: 's',
+        TimeUnit.WEEK: 'wk',
     }
 
     def __init__(self, value: float, unit: 'TimeUnit') -> None:
@@ -131,10 +131,6 @@ class Time:
 
     # Generation shorthands
     @staticmethod
-    def from_weeks(value: float) -> 'Time':
-        return Time(value, TimeUnit.WEEK)
-
-    @staticmethod
     def from_days(value: float) -> 'Time':
         return Time(value, TimeUnit.DAY)
 
@@ -143,30 +139,30 @@ class Time:
         return Time(value, TimeUnit.HOUR)
 
     @staticmethod
-    def from_minutes(value: float) -> 'Time':
-        return Time(value, TimeUnit.MINUTE)
-
-    @staticmethod
-    def from_seconds(value: float) -> 'Time':
-        return Time(value, TimeUnit.SECOND)
+    def from_microseconds(value: float) -> 'Time':
+        return Time(value, TimeUnit.MICROSECOND)
 
     @staticmethod
     def from_milliseconds(value: float) -> 'Time':
         return Time(value, TimeUnit.MILLISECOND)
 
     @staticmethod
-    def from_microseconds(value: float) -> 'Time':
-        return Time(value, TimeUnit.MICROSECOND)
+    def from_minutes(value: float) -> 'Time':
+        return Time(value, TimeUnit.MINUTE)
 
     @staticmethod
     def from_nanoseconds(value: float) -> 'Time':
         return Time(value, TimeUnit.NANOSECOND)
 
-    # Conversion shorthands
-    @property
-    def weeks(self) -> float:
-        return self.as_unit(TimeUnit.WEEK)
+    @staticmethod
+    def from_seconds(value: float) -> 'Time':
+        return Time(value, TimeUnit.SECOND)
 
+    @staticmethod
+    def from_weeks(value: float) -> 'Time':
+        return Time(value, TimeUnit.WEEK)
+
+    # Conversion shorthands
     @property
     def days(self) -> float:
         return self.as_unit(TimeUnit.DAY)
@@ -176,24 +172,28 @@ class Time:
         return self.as_unit(TimeUnit.HOUR)
 
     @property
-    def minutes(self) -> float:
-        return self.as_unit(TimeUnit.MINUTE)
-
-    @property
-    def seconds(self) -> float:
-        return self.as_unit(TimeUnit.SECOND)
+    def microseconds(self) -> float:
+        return self.as_unit(TimeUnit.MICROSECOND)
 
     @property
     def milliseconds(self) -> float:
         return self.as_unit(TimeUnit.MILLISECOND)
 
     @property
-    def microseconds(self) -> float:
-        return self.as_unit(TimeUnit.MICROSECOND)
+    def minutes(self) -> float:
+        return self.as_unit(TimeUnit.MINUTE)
 
     @property
     def nanoseconds(self) -> float:
         return self.as_unit(TimeUnit.NANOSECOND)
+
+    @property
+    def seconds(self) -> float:
+        return self.as_unit(TimeUnit.SECOND)
+
+    @property
+    def weeks(self) -> float:
+        return self.as_unit(TimeUnit.WEEK)
 
     def _to_base_unit(self) -> 'Time':
         return self.to_unit(self.base_unit)

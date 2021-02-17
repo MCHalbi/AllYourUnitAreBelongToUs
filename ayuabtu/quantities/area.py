@@ -9,32 +9,32 @@ from ..units import AreaUnit
 class Area:
     base_unit = AreaUnit.SQUAREMETER
     factors = {
-        AreaUnit.SQUAREKILOMETER: 1e6,
-        AreaUnit.HECTARE: 1e4,
-        AreaUnit.SQUAREMETER: 1,
-        AreaUnit.SQUAREDECIMETER: 1e-2,
-        AreaUnit.SQUARECENTIMETER: 1e-4,
-        AreaUnit.SQUAREMILLIMETER: 1e-6,
-        AreaUnit.SQUAREMICROMETER: 1e-12,
-        AreaUnit.SQUAREINCH: 6.4516e-4,
-        AreaUnit.SQUAREFOOT: 9.2903e-2,
-        AreaUnit.SQUAREYARD: 8.36127e-1,
-        AreaUnit.SQUAREMILE: 2.59e6,
         AreaUnit.ACRE: 4046.85642,
+        AreaUnit.HECTARE: 1e4,
+        AreaUnit.SQUARECENTIMETER: 1e-4,
+        AreaUnit.SQUAREDECIMETER: 1e-2,
+        AreaUnit.SQUAREFOOT: 9.2903e-2,
+        AreaUnit.SQUAREINCH: 6.4516e-4,
+        AreaUnit.SQUAREKILOMETER: 1e6,
+        AreaUnit.SQUAREMETER: 1,
+        AreaUnit.SQUAREMICROMETER: 1e-12,
+        AreaUnit.SQUAREMILE: 2.59e6,
+        AreaUnit.SQUAREMILLIMETER: 1e-6,
+        AreaUnit.SQUAREYARD: 8.36127e-1,
     }
     abbreviations = {
-        AreaUnit.SQUAREKILOMETER: 'km²',
-        AreaUnit.HECTARE: 'ha',
-        AreaUnit.SQUAREMETER: 'm²',
-        AreaUnit.SQUAREDECIMETER: 'dm²',
-        AreaUnit.SQUARECENTIMETER: 'cm²',
-        AreaUnit.SQUAREMILLIMETER: 'mm²',
-        AreaUnit.SQUAREMICROMETER: 'μm²',
-        AreaUnit.SQUAREINCH: 'in²',
-        AreaUnit.SQUAREFOOT: 'ft²',
-        AreaUnit.SQUAREYARD: 'yd²',
-        AreaUnit.SQUAREMILE: 'mi²',
         AreaUnit.ACRE: 'ac',
+        AreaUnit.HECTARE: 'ha',
+        AreaUnit.SQUARECENTIMETER: 'cm²',
+        AreaUnit.SQUAREDECIMETER: 'dm²',
+        AreaUnit.SQUAREFOOT: 'ft²',
+        AreaUnit.SQUAREINCH: 'in²',
+        AreaUnit.SQUAREKILOMETER: 'km²',
+        AreaUnit.SQUAREMETER: 'm²',
+        AreaUnit.SQUAREMICROMETER: 'μm²',
+        AreaUnit.SQUAREMILE: 'mi²',
+        AreaUnit.SQUAREMILLIMETER: 'mm²',
+        AreaUnit.SQUAREYARD: 'yd²',
     }
 
     def __init__(self, value: float, unit: 'AreaUnit') -> None:
@@ -71,8 +71,8 @@ class Area:
         self._raise_type_error_for_undefined_operator(other, '-')
 
     def __mul__(self, other):
-        from .volume import Volume
         from .length import Length
+        from .volume import Volume
 
         if type(other) in (float, int):
             result = Area(self._value * other, self._unit)
@@ -86,8 +86,8 @@ class Area:
         return result
 
     def __rmul__(self, other):
-        from .volume import Volume
         from .length import Length
+        from .volume import Volume
 
         if type(other) in (float, int, Length):
             return self * other
@@ -152,101 +152,101 @@ class Area:
 
     # Generation shorthands
     @staticmethod
-    def from_square_kilometers(value: float) -> 'Area':
-        return Area(value, AreaUnit.SQUAREKILOMETER)
+    def from_acres(value: float) -> 'Area':
+        return Area(value, AreaUnit.ACRE)
 
     @staticmethod
     def from_hectares(value: float) -> 'Area':
         return Area(value, AreaUnit.HECTARE)
 
     @staticmethod
-    def from_square_meters(value: float) -> 'Area':
-        return Area(value, AreaUnit.SQUAREMETER)
+    def from_square_centimeters(value: float) -> 'Area':
+        return Area(value, AreaUnit.SQUARECENTIMETER)
 
     @staticmethod
     def from_square_decimeters(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREDECIMETER)
 
     @staticmethod
-    def from_square_centimeters(value: float) -> 'Area':
-        return Area(value, AreaUnit.SQUARECENTIMETER)
-
-    @staticmethod
-    def from_square_millimeters(value: float) -> 'Area':
-        return Area(value, AreaUnit.SQUAREMILLIMETER)
-
-    @staticmethod
-    def from_square_micrometers(value: float) -> 'Area':
-        return Area(value, AreaUnit.SQUAREMICROMETER)
+    def from_square_feet(value: float) -> 'Area':
+        return Area(value, AreaUnit.SQUAREFOOT)
 
     @staticmethod
     def from_square_inches(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREINCH)
 
     @staticmethod
-    def from_square_feet(value: float) -> 'Area':
-        return Area(value, AreaUnit.SQUAREFOOT)
+    def from_square_kilometers(value: float) -> 'Area':
+        return Area(value, AreaUnit.SQUAREKILOMETER)
 
     @staticmethod
-    def from_square_yards(value: float) -> 'Area':
-        return Area(value, AreaUnit.SQUAREYARD)
+    def from_square_meters(value: float) -> 'Area':
+        return Area(value, AreaUnit.SQUAREMETER)
+
+    @staticmethod
+    def from_square_micrometers(value: float) -> 'Area':
+        return Area(value, AreaUnit.SQUAREMICROMETER)
 
     @staticmethod
     def from_square_miles(value: float) -> 'Area':
         return Area(value, AreaUnit.SQUAREMILE)
 
     @staticmethod
-    def from_acres(value: float) -> 'Area':
-        return Area(value, AreaUnit.ACRE)
+    def from_square_millimeters(value: float) -> 'Area':
+        return Area(value, AreaUnit.SQUAREMILLIMETER)
+
+    @staticmethod
+    def from_square_yards(value: float) -> 'Area':
+        return Area(value, AreaUnit.SQUAREYARD)
 
     # Conversion shorthands
     @property
-    def square_kilometers(self) -> float:
-        return self.as_unit(AreaUnit.SQUAREKILOMETER)
+    def acres(self) -> float:
+        return self.as_unit(AreaUnit.ACRE)
 
     @property
     def hectares(self) -> float:
         return self.as_unit(AreaUnit.HECTARE)
 
     @property
-    def square_meters(self) -> float:
-        return self.as_unit(AreaUnit.SQUAREMETER)
+    def square_centimeters(self) -> float:
+        return self.as_unit(AreaUnit.SQUARECENTIMETER)
 
     @property
     def square_decimeters(self) -> float:
         return self.as_unit(AreaUnit.SQUAREDECIMETER)
 
     @property
-    def square_centimeters(self) -> float:
-        return self.as_unit(AreaUnit.SQUARECENTIMETER)
-
-    @property
-    def square_millimeters(self) -> float:
-        return self.as_unit(AreaUnit.SQUAREMILLIMETER)
-
-    @property
-    def square_micrometers(self) -> float:
-        return self.as_unit(AreaUnit.SQUAREMICROMETER)
+    def square_feet(self) -> float:
+        return self.as_unit(AreaUnit.SQUAREFOOT)
 
     @property
     def square_inches(self) -> float:
         return self.as_unit(AreaUnit.SQUAREINCH)
 
     @property
-    def square_feet(self) -> float:
-        return self.as_unit(AreaUnit.SQUAREFOOT)
+    def square_kilometers(self) -> float:
+        return self.as_unit(AreaUnit.SQUAREKILOMETER)
 
     @property
-    def square_yards(self) -> float:
-        return self.as_unit(AreaUnit.SQUAREYARD)
+    def square_meters(self) -> float:
+        return self.as_unit(AreaUnit.SQUAREMETER)
+
+    @property
+    def square_micrometers(self) -> float:
+        return self.as_unit(AreaUnit.SQUAREMICROMETER)
 
     @property
     def square_miles(self) -> float:
         return self.as_unit(AreaUnit.SQUAREMILE)
 
     @property
-    def acres(self) -> float:
-        return self.as_unit(AreaUnit.ACRE)
+    def square_millimeters(self) -> float:
+        return self.as_unit(AreaUnit.SQUAREMILLIMETER)
+
+    @property
+    def square_yards(self) -> float:
+        return self.as_unit(AreaUnit.SQUAREYARD)
 
     def _to_base_unit(self) -> 'Area':
         return self.to_unit(self.base_unit)

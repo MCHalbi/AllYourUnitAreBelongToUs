@@ -184,7 +184,12 @@ class {{ quantity['name'] }}:
         base_unit_value = self._get_value_in_base_unit()
 
         try:
+            {% if quantity.get('offset_conversion', False) %}
+            return ((base_unit_value - {{ quantity['name'] }}.offsets[unit])
+                    / {{ quantity['name'] }}.factors[unit])
+            {% else %}
             return base_unit_value / {{ quantity['name'] }}.factors[unit]
+            {% endif %}
         except KeyError:
             raise NotImplementedError(
                 'Can not convert {0} to {1}.'.format(self._unit.name, unit))
