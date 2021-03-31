@@ -142,7 +142,7 @@ class Length:
 
         if type(other) is Length:
             result = (self._get_value_in_base_unit()
-                    / other.as_unit(other.base_unit))
+                      / other.as_unit(other.base_unit))
         elif type(other) in (float, int):
             result = Length(self._value / other, self._unit)
         else:
@@ -154,7 +154,7 @@ class Length:
         if type(other) in (float, int):
             result = 1
             for _ in range(other):
-              result *= self
+                result *= self
 
             return result
         else:
